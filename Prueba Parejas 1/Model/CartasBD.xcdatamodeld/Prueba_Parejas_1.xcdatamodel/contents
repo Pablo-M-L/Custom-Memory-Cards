@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GaleriaFotos6" representedClassName="GaleriaFotos6" syncable="YES" codeGenerationType="class">
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="GaleriaFotos10" representedClassName="GaleriaFotos10" syncable="YES" codeGenerationType="class">
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="GaleriaFotos12" representedClassName="GaleriaFotos12" syncable="YES" codeGenerationType="class">
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="GaleriaFotos15" representedClassName="GaleriaFotos15" syncable="YES" codeGenerationType="class">
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="GaleriaFotos18" representedClassName="GaleriaFotos18" syncable="YES" codeGenerationType="class">
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="GaleriaFotos21" representedClassName="GaleriaFotos21" syncable="YES" codeGenerationType="class">
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="indice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GaleriaFotos6" positionX="-63" positionY="0" width="128" height="75"/>
+        <element name="GaleriaFotos10" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="GaleriaFotos12" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="GaleriaFotos15" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="GaleriaFotos18" positionX="-36" positionY="27" width="128" height="75"/>
+        <element name="GaleriaFotos21" positionX="-18" positionY="36" width="128" height="75"/>
+    </elements>
+</model>
