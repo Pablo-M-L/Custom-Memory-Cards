@@ -135,7 +135,7 @@ class FactoriaImagenes{
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
     
@@ -155,7 +155,7 @@ class FactoriaImagenes{
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
     
@@ -174,7 +174,7 @@ class FactoriaImagenes{
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
     
@@ -193,7 +193,7 @@ class FactoriaImagenes{
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
     
@@ -212,7 +212,7 @@ class FactoriaImagenes{
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
     
@@ -232,117 +232,110 @@ class FactoriaImagenes{
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
     
     //----------------------------------------------------------------------------------------------
     //cambiar carta.
     
-    func cambiarCarta<T>(carta: UIImage, indice: Int, porDefecto: Bool, arrayBD: [T]){
+    func cambiarCarta<T>(numeroTableroActual: Int, carta: UIImage, indice: Int, porDefecto: Bool, arrayBD: [T]){
         
         let arrayPostalesGenerico = arrayBD
-
-        //carga galeria de 6 parejas
-        if var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos6]{
-            arrayPostales = leerGaleria6Parejas()
+        switch numeroTableroActual {
+        case 6:
+            var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos6]
+                arrayPostales! = leerGaleria6Parejas()
+                let imagen = carta.pngData()
+                
+                arrayPostales![indice].imagen = imagen
+                
+                if porDefecto{
+                    
+                    arrayPostales![indice].indice = Int16(indice) + 1000
+                }
+                else{
+                    arrayPostales![indice].indice = Int16(indice)
+                }
+        case 10:
+            var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos10]
+            arrayPostales! = leerGaleria10Parejas()
             let imagen = carta.pngData()
             
-            arrayPostales[indice].imagen = imagen
+            arrayPostales![indice].imagen = imagen
             
             if porDefecto{
                 
-                arrayPostales[indice].indice = Int16(indice) + 1000
+                arrayPostales![indice].indice = Int16(indice) + 1000
             }
             else{
-                arrayPostales[indice].indice = Int16(indice)
+                arrayPostales![indice].indice = Int16(indice)
             }
-        }
-        
-        //carga galeria de 10 parejas
-        else if var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos10]{
-            arrayPostales = leerGaleria10Parejas()
+        case 12:
+            var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos12]
+            arrayPostales! = leerGaleria12Parejas()
             let imagen = carta.pngData()
             
-            arrayPostales[indice].imagen = imagen
+            arrayPostales![indice].imagen = imagen
             
             if porDefecto{
                 
-                arrayPostales[indice].indice = Int16(indice) + 1000
+                arrayPostales![indice].indice = Int16(indice) + 1000
             }
             else{
-                arrayPostales[indice].indice = Int16(indice)
+                arrayPostales![indice].indice = Int16(indice)
             }
-        }
-        
-            //carga galeria de 10 parejas
-        else if var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos12]{
-            arrayPostales = leerGaleria12Parejas()
+        case 15:
+            var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos15]
+            arrayPostales! = leerGaleria15Parejas()
             let imagen = carta.pngData()
             
-            arrayPostales[indice].imagen = imagen
+            arrayPostales![indice].imagen = imagen
             
             if porDefecto{
                 
-                arrayPostales[indice].indice = Int16(indice) + 1000
+                arrayPostales![indice].indice = Int16(indice) + 1000
             }
             else{
-                arrayPostales[indice].indice = Int16(indice)
+                arrayPostales![indice].indice = Int16(indice)
             }
-        }
-        
-            //carga galeria de 10 parejas
-        else if var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos15]{
-            arrayPostales = leerGaleria15Parejas()
+        case 18:
+            var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos18]
+            arrayPostales! = leerGaleria18Parejas()
             let imagen = carta.pngData()
             
-            arrayPostales[indice].imagen = imagen
+            arrayPostales![indice].imagen = imagen
             
             if porDefecto{
                 
-                arrayPostales[indice].indice = Int16(indice) + 1000
+                arrayPostales![indice].indice = Int16(indice) + 1000
             }
             else{
-                arrayPostales[indice].indice = Int16(indice)
+                arrayPostales![indice].indice = Int16(indice)
             }
-        }
-        
-            //carga galeria de 10 parejas
-        else if var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos18]{
-            arrayPostales = leerGaleria18Parejas()
+        case 21:
+            var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos21]
+            arrayPostales! = leerGaleria21Parejas()
             let imagen = carta.pngData()
             
-            arrayPostales[indice].imagen = imagen
+            arrayPostales![indice].imagen = imagen
             
             if porDefecto{
                 
-                arrayPostales[indice].indice = Int16(indice) + 1000
+                arrayPostales![indice].indice = Int16(indice) + 1000
             }
             else{
-                arrayPostales[indice].indice = Int16(indice)
+                arrayPostales![indice].indice = Int16(indice)
             }
-        }
-        
-            //carga galeria de 10 parejas
-        else if var arrayPostales = arrayPostalesGenerico as? [GaleriaFotos21]{
-            arrayPostales = leerGaleria21Parejas()
-            let imagen = carta.pngData()
             
-            arrayPostales[indice].imagen = imagen
-            
-            if porDefecto{
-                
-                arrayPostales[indice].indice = Int16(indice) + 1000
-            }
-            else{
-                arrayPostales[indice].indice = Int16(indice)
-            }
+        default:
+            print("fallo al importar o cambiar la imagen")
         }
         
         do {
             try context.save()
         } catch let error as NSError {
-            print("error al guardar postal en coredata. \(error), \(error.userInfo)")
+            print("error al guardar carta en coredata. \(error), \(error.userInfo)")
         }
     }
 }

@@ -125,6 +125,9 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
         if carta.indice < 1000{
             cell?.labelNoPhoto.isHidden = true
         }
+        else{
+            cell?.labelNoPhoto.isHidden = false
+        }
         return cell!
     }
     
@@ -145,9 +148,17 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         switch numeroTableroRecibido {
         case 6:
-            factoriaCartas.cambiarCarta(carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas6)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas6)
         case 10:
-            factoriaCartas.cambiarCarta(carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas10)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas10)
+        case 12:
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas12)
+        case 15:
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas15)
+        case 18:
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas18)
+        case 21:
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: fotoSeleccionada!, indice: indiceCartaAcambiar, porDefecto: false, arrayBD: arrayCartas21)
         default:
             print("no hay para cambiar")
         }
@@ -170,21 +181,21 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         switch numeroTableroRecibido {
         case 6:
-            factoriaCartas.cambiarCarta(carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas6)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido, carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas6)
         case 10:
-            factoriaCartas.cambiarCarta(carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas10)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas10)
         case 12:
-            factoriaCartas.cambiarCarta(carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas12)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas12)
         case 15:
-            factoriaCartas.cambiarCarta(carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas15)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas15)
         case 18:
-            factoriaCartas.cambiarCarta(carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas18)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas18)
         case 21:
-            factoriaCartas.cambiarCarta(carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas21)
+            factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagenPorDefecto!, indice: sender.tag, porDefecto: true, arrayBD: arrayCartas21)
         default:
             print("no hay para cambiar por defecto")
         }
-
+        print("releer despues de por defecto")
         self.leerBDcorrespondiente()
         self.collectionViewCartas.reloadData()
 
@@ -244,48 +255,109 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func importarImagenes(tableroOrigen: Int){
         var imagen = UIImage()
+        print(tableroOrigen)
         //tablero origen es el tablero desde el que se va a importar las imagenes.
         switch tableroOrigen {
         case 6:
             //carga un array con la base de datos origen.
             var arrayCartas6 = factoriaCartas.leerGaleria6Parejas()
             //en el bucle, obtiene la imagen de la base de datos origen y llama a la funcion cambiarImagenImportada.
-            for i in 0...(tableroOrigen - 1){
+            if !arrayCartas6.isEmpty{
+                for i in 0...(tableroOrigen - 1){
                 let porDefecto = arrayCartas6[i].indice >= 1000 ? true : false
                 imagen =  UIImage(data: arrayCartas6[i].imagen!)!
                 cambiarImagenimportada(imagen: imagen, indice: i, porDefecto: porDefecto )
+                }
             }
             //vacia el array de la base de datos origen porque ya no se va a usar.
             arrayCartas6 = []
             
         case 10:
             var arrayCartas10 = factoriaCartas.leerGaleria10Parejas()
-            for i in 0...(tableroOrigen - 1){
+            print(arrayCartas10.count)
+            if !arrayCartas10.isEmpty{
+                for i in 0...(tableroOrigen - 1){
                 let porDefecto = arrayCartas10[i].indice >= 1000 ? true : false
                 imagen = UIImage(data: arrayCartas10[i].imagen!)!
                 cambiarImagenimportada(imagen: imagen, indice: i, porDefecto: porDefecto )
+                }
             }
             arrayCartas10 = []
+        case 12:
+            var arrayCartas12 = factoriaCartas.leerGaleria12Parejas()
+            if !arrayCartas12.isEmpty{
+                for i in 0...(tableroOrigen - 1){
+                let porDefecto = arrayCartas12[i].indice >= 1000 ? true : false
+                imagen = UIImage(data: arrayCartas12[i].imagen!)!
+                cambiarImagenimportada(imagen: imagen, indice: i, porDefecto: porDefecto )
+                }
+            }
+            arrayCartas12 = []
+        case 15:
+            var arrayCartas15 = factoriaCartas.leerGaleria15Parejas()
+            if !arrayCartas15.isEmpty{
+                for i in 0...(tableroOrigen - 1){
+                let porDefecto = arrayCartas15[i].indice >= 1000 ? true : false
+                imagen = UIImage(data: arrayCartas15[i].imagen!)!
+                cambiarImagenimportada(imagen: imagen, indice: i, porDefecto: porDefecto )
+                }
+            }
+            arrayCartas15 = []
+        case 18:
+            var arrayCartas18 = factoriaCartas.leerGaleria18Parejas()
+            if !arrayCartas18.isEmpty{
+                for i in 0...(tableroOrigen - 1){
+                let porDefecto = arrayCartas18[i].indice >= 1000 ? true : false
+                imagen = UIImage(data: arrayCartas18[i].imagen!)!
+                cambiarImagenimportada(imagen: imagen, indice: i, porDefecto: porDefecto )
+                }
+            }
+            arrayCartas18 = []
+        case 21:
+            var arrayCartas21 = factoriaCartas.leerGaleria21Parejas()
+            if !arrayCartas21.isEmpty{
+                for i in 0...(tableroOrigen - 1){
+                let porDefecto = arrayCartas21[i].indice >= 1000 ? true : false
+                imagen = UIImage(data: arrayCartas21[i].imagen!)!
+                cambiarImagenimportada(imagen: imagen, indice: i, porDefecto: porDefecto )
+                }
+            }
+            arrayCartas21 = []
+            
         default:
             print("no se ha creado parejas aleatorias.")
         }
     }
     
     func cambiarImagenimportada(imagen: UIImage, indice: Int, porDefecto: Bool){
-
+        print(numeroTableroRecibido)
         switch numeroTableroRecibido {
         case 6:
             //si la imagen es la imagen por defecto no se tiene que cambiar
             //y si el indice es mayor que el numero de cartas del tablero actual tampoco.
-            if  !porDefecto && indice < numeroTableroRecibido{
-            factoriaCartas.cambiarCarta(carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas6)
-            }
-            else{return}
+            if !porDefecto && indice < numeroTableroRecibido{
+                factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas6)
+            }else{return}
         case 10:
             if !porDefecto && indice < numeroTableroRecibido{
-                factoriaCartas.cambiarCarta(carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas10)
-            }
-            else{return}
+                factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido,carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas10)
+            }else{return}
+        case 12:
+            if !porDefecto && indice < numeroTableroRecibido{
+                factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido, carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas12)
+            }else{return}
+        case 15:
+            if !porDefecto && indice < numeroTableroRecibido{
+                factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido, carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas15)
+            }else{return}
+        case 18:
+            if !porDefecto && indice < numeroTableroRecibido{
+                factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido, carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas18)
+            }else{return}
+        case 21:
+            if !porDefecto && indice < numeroTableroRecibido{
+                factoriaCartas.cambiarCarta(numeroTableroActual: numeroTableroRecibido, carta: imagen, indice: indice, porDefecto: false, arrayBD: arrayCartas21)
+            }else{return}
         default:
             
             print("sin carta a cambiar")

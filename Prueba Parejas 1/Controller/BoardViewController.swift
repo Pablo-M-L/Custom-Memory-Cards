@@ -278,7 +278,7 @@ class BoardViewController: UIViewController {
         case 42:
             arrayCartas21 = [GaleriaFotos21]()
             arrayCartas21 = factoriaCartas.leerGaleria21Parejas()
-            if arrayCartas10.isEmpty{
+            if arrayCartas21.isEmpty{
                 factoriaCartas.crearImagenesPorDefecto21Parejas()
                 arrayCartas21 = factoriaCartas.leerGaleria21Parejas()
             }
