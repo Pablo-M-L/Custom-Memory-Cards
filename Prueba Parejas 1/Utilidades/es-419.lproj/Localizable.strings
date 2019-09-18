@@ -1,0 +1,48 @@
+/*
+ Localizable.strings
+ Prueba Parejas 1
+ 
+ Created by admin on 14/09/2019.
+ Copyright © 2019 admin. All rights reserved.
+ */
+
+//ESPAÑOL LATINO
+
+//pantalla de fin de juego.
+"label_Nuevo_Record_Conseguido" = "¡¡ MUY BIEN!! ¡¡¡TIENES UN NUEVO RECORD !!!!";
+"label_Nuevo_Record_Fallado" = "!! INTENTALO DE NUEVO ¡¡";
+"label_tiempo_no_record" = " NO RECORD ";
+"label_completado_1" = "!!! HAS COMPLETADO EL DE TABLERO ";
+"label_completado_2" = " CARTAS, CON ";
+"label_completado_3" = " PAREJAS DE CARTAS PERSONALIZADAS EN : ";
+
+//utilidades
+"tiempo_formateado_minutos" = " MINUTOS Y ";
+"tiempo_formateado_segundos" = " SEGUNDOS.";
+
+//pantalla principal, viewcontroller.
+"titulo_alert_compra" = "Quitar Publicidad";
+"mensaje_alert_comprada" = "La app ya está comprada.";
+"mensaje_alert_restaurar" = "El juego ya está comprado, se va ha realizar una restauracion de la compra";
+"mensaje_alert_comprar_app" = "Te gustaria comprar el juego Custom Memory Cards por  ";
+"mensaje_alert_no_permiso_compra" = "No se perimite compras en este dispositivo.";
+"btnComprar" = "COMPRAR";
+"btnRestaurar" = "RESTAURAR";
+"btnCancelar" = "CANCELAR";
+
+//pantalla de ayuda.
+"texto_ayuda_btnComprar" =
+"COMPRAR EL JUEGO. \n Puedes comprar el juego y quitar la publicidad de las pantallas. \n Tambien puedes restaurar la compra, si ya lo has comprado anteriormente.";
+"texto_ayuda_btnFace" =
+"COMPARTIR EN FACEBOOK.\n Si te ha gustado Custom Memory Cards, puedes recomendarlo en tu cuenta de Facebook.";
+"texto_ayuda_Tablero" =
+"SELECCIONAR TABLERO DE JUEGO. \n Cada uno de los botones abre un tablero para jugar. \n El numero dibujado en cada boton corresponde al numero de cartas del tablero.";
+"texto_ayuda_pantalla_tablero" =
+"TABLERO DE JUEGO. \n Destapa las cartas de dos en dos y ves haciendo parejas iguales hasta completar el tablero.";
+"texto_ayuda_btnPersonalizar" =
+"PERSONALIZAR JUEGO. \n Antes de empezar a jugar por primera vez, \n y cada vez que quieras \n puedes ir a la pantalla de configuración y personalizar cada pareja con las fotos que quieras para cada pareja.";
+"texto_ayuda_pantalla_personalizar" =
+"PERSONALIZAR PAREJAS. \n Cada imagen corresponde a una pareja. \n Al tocar en una imagen se abrirá tu galeria de fotos, \n donde podrás seleccionar la foto que deseas. \n No hace falta personalizar todas las parejas, \n con una pareja personalizada ya se puede volver al panel y jugar. \n Tambien puedes volver a poner la imagen por defecto tocando en el icono del cubo de basura.";
+"texto_ayuda_btnImportar" =
+"BOTON DE IMPORTAR. \n Puedes aprovechar las imagenes personalizadas en otros tableros. Pulsa en el boton de importar y selecciona el tablero desde el que quieres importar las fotos.";
+"texto_ayuda_fin" = "FIN";

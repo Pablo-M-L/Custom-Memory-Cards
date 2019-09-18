@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "CUSTOMIZER"; ObjectID = "6nO-F3-WEu"; */
+"6nO-F3-WEu.text" = "PESSOALIZAÇÃO";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8oL-CX-6f7"; */
+"8oL-CX-6f7.text" = "Label";
+
+/* Class = "UILabel"; text = "Select a Game Board to Play!!!!"; ObjectID = "9tb-1w-YgX"; */
+"9tb-1w-YgX.text" = "Seleccione um Tabuleiro de Jogo para Jogar!!!!";
+
+/* Class = "UILabel"; text = "No Custom Photo"; ObjectID = "Bap-Ks-XrD"; */
+"Bap-Ks-XrD.text" = "No Custom Photo";
+
+/* Class = "UILabel"; text = "Custom Memory Card"; ObjectID = "Cnk-Oi-uWc"; */
+"Cnk-Oi-uWc.text" = "Custom Memory Card";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Fji-3I-0c4"; */
+"Fji-3I-0c4.title" = " ";
+
+/* Class = "UILabel"; text = "YOU HAVE COMPLETED THE GAME BOARD IN :"; ObjectID = "Jad-6J-LNz"; */
+"Jad-6J-LNz.text" = "VOCÊ COMPLETOU O TABULEIRO DE JOGO EM :";
+
+/* Class = "UIViewController"; title = "CONGRATULATIONS"; ObjectID = "K8T-zd-7zx"; */
+"K8T-zd-7zx.title" = "FELICITAÇÕES";
+
+/* Class = "UILabel"; text = "\"\""; ObjectID = "Mp1-Xu-zfI"; */
+"Mp1-Xu-zfI.text" = "\"\"";
+
+/* Class = "UILabel"; text = "99 MIN AND 99 SECOND"; ObjectID = "Qbg-zv-np7"; */
+"Qbg-zv-np7.text" = "99 MIN AND 99 SEGUNDOS";
+
+/* Class = "UILabel"; text = "99 MIN AND 99 SECOND"; ObjectID = "a45-Au-mGr"; */
+"a45-Au-mGr.text" = "99 MIN AND 99 SEGUNDOS";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cD1-1e-NrB"; */
+"cD1-1e-NrB.text" = "Label";
+
+/* Class = "UIViewController"; title = "CUSTOMIZER"; ObjectID = "maS-5r-DZH"; */
+"maS-5r-DZH.title" = "PESSOALIZAÇÃO";
+
+/* Class = "UIButton"; normalTitle = "PLAY AGAIN"; ObjectID = "o8x-J3-Z7s"; */
+"o8x-J3-Z7s.normalTitle" = "NOVO JOGO";
+
+/* Class = "UILabel"; text = "CONGRATULATIONS!!!"; ObjectID = "sQ8-vf-be0"; */
+"sQ8-vf-be0.text" = "PARABÉNS!!!";
+
+/* Class = "UILabel"; text = "RECORD : "; ObjectID = "ti5-0f-Xlr"; */
+"ti5-0f-Xlr.text" = "RECORD : ";
+
+/* Class = "UILabel"; text = "Touch on an Image and Select Photo for each pair!!"; ObjectID = "uzr-cG-JW0"; */
+"uzr-cG-JW0.text" = "Toque em uma imagem e selecione Foto para cada par!!";

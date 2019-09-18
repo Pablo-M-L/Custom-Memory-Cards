@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import QuartzCore
+
 
 class FinPartidaViewController: UIViewController {
 
@@ -39,15 +39,15 @@ class FinPartidaViewController: UIViewController {
     }
 
     func mostrarLabelCompletado(){
-        labelCompletado.text = "HAS COMPLETED THE BOARD \(numeroTablero) CARDS, WITH \(objetivoParejasHechas) PAIRS OF CUSTOMIZED CARDS IN : "
+        labelCompletado.text = "\(NSLocalizedString("label_completado_1", comment: "")) \(numeroTablero) \(NSLocalizedString("label_completado_2", comment: "")) \(objetivoParejasHechas) \(NSLocalizedString("label_completado_3", comment: ""))"
     }
     
     func nuevoLabelRecord(conseguido: Bool){
         if conseguido{
-            labelNuevoRecord.text = "ALL RIGHT!! YOU HAVE A NEW RECORD"
+            labelNuevoRecord.text = NSLocalizedString("label_Nuevo_Record_Conseguido", comment: "muestra que se  ha conseguido un nuevo record")
         }
         else{
-            labelNuevoRecord.text = "KEEP TRYING"
+            labelNuevoRecord.text = NSLocalizedString("label_Nuevo_Record_Fallado", comment: "muestra que no has conseguido un nuevo record")
 
         }
     }
@@ -66,7 +66,7 @@ class FinPartidaViewController: UIViewController {
             labetTiempoRecord.text = tiempoFormateado
         }
         else{
-            labetTiempoRecord.text = " NO RECORD "
+            labetTiempoRecord.text = NSLocalizedString("label_tiempo_no_record", comment: "sin record") 
         }
     }
         

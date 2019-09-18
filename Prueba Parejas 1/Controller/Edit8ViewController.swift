@@ -13,7 +13,7 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     var numeroTableroRecibido = 0
     var arrayTuplaCartas = [(imagen: UIImage,indice: Int)]()
-
+    var defaults = UserDefaults.standard
    
     var arrayCartas6 = [GaleriaFotos6]()
     var arrayCartas10 = [GaleriaFotos10]()
@@ -44,8 +44,13 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
         guard let imgDefault = UIImage(named: "imagenPorDefecto") else {return}
         imagenPorDefecto = imgDefault
         
-        self.interstitial = createAndLoadInterstitial()
-        mostrarBannerInt()
+        //comprobar si hay que mostrar publicidad o está comprada.
+        let appComprada = defaults.bool(forKey: "com.pablomillanlopez.juegos.CustomMemoryCards")
+        if !appComprada{
+            self.interstitial = createAndLoadInterstitial()
+            mostrarBannerInt()
+        }
+
         
     }
     

@@ -1,0 +1,49 @@
+/*
+ Localizable.strings
+ Prueba Parejas 1
+ 
+ Created by admin on 14/09/2019.
+ Copyright © 2019 admin. All rights reserved.
+ */
+
+//FRANCES
+
+
+//pantalla fin de juego
+"label_Nuevo_Record_Conseguido" = "TOUTES DROITES !!! VOUS AVEZ UN NOUVEAU RECORD DE JEU";
+"label_Nuevo_Record_Fallado" = "GARDER L'ESSAI";
+"label_tiempo_no_record" = " NO RECORD ";
+"label_completado_1" = "A COMPLÉTÉ LE PLATEAU DE JEU ";
+"label_completado_2" = " CARTES, AVEC ";
+"label_completado_3" = " PAIRES DE CARTES PERSONNALISÉES EN : ";
+
+//utilidades
+"tiempo_formateado_minutos" = " MINUTES AND ";
+"tiempo_formateado_segundos" = " SECONDES.";
+
+//pantalla principal, viewcontroller.
+"titulo_alert_compra" = "Suppimer la publicité";
+"mensaje_alert_comprada" = "L'application est déjà achetée.";
+"mensaje_alert_restaurar" = "Le jeu est déjà acheté, vous effectuerez une restauration de l'achat";
+"mensaje_alert_comprar_app" = "Souhaitez-vous acheter le jeu de Custom Memory Cards pour  ";
+"mensaje_alert_no_permiso_compra" = "Aucun achat n'est autorisé sur cet appareil.";
+"btnComprar" = "ACHETER";
+"btnRestaurar" = "RESTAURER";
+"btnCancelar" = "ANNULER";
+
+//pantalla de ayuda.
+"texto_ayuda_btnComprar" =
+"ACHETEZ LE JEU \n Tu peux acheter le jeu et retirer la publicité des écrans. \n Vous pouvez aussi restaurer l'achat, si vous l'avez déjà acheté auparavant.";
+"texto_ayuda_btnFace" =
+"PARTAGER SUR FACEBOOK.\n Si vous avez aimé Custom Memory Cards, vous pouvez les recommander dans votre compte Facebook.";
+"texto_ayuda_Tablero" =
+"CHOISIR LE PLATEAU DE JEU. \n Chacun des boutons ouvre un plateau de jeu pour jouer. \n Le nombre tiré sur chaque bouton correspond au nombre de cartes sur le plateau de jeu.";
+"texto_ayuda_pantalla_tablero" =
+"GAME BOARD. \n Découvrir les cartes deux par deux et faire des paires égales pour compléter le tableau.";
+"texto_ayuda_btnPersonalizar" =
+"PERSONNALISER LE JEU. \n Avant de commencer à jouer pour la première fois, \n et quand vous voulez  \n vous pouvez aller à l'écran des réglages et personnaliser chaque paire avec les photos que vous voulez pour chaque paire.";
+"texto_ayuda_pantalla_personalizar" =
+"PERSONNALISER LES PAIRES. \n Chaque image correspond à un couple.  \n Toucher une image ouvrira votre galerie de photos,  \n où vous pouvez sélectionner la photo que vous voulez. \n Pas besoin de personnaliser toutes les paires, \n avec une paire personnalisée tu peux retourner au panneau et jouer. \n Vous pouvez aussi réinitialiser l'image par défaut en touchant l'icône de la poubelle.";
+"texto_ayuda_btnImportar" =
+"BOUTON D'IMPORTATION. \n Tu peux profiter des images personnalisées sur d'autres planches de jeu. Cliquez sur le bouton d'importation et sélectionnez la carte à partir de laquelle vous voulez importer des photos.";
+"texto_ayuda_fin" = "FINAL";

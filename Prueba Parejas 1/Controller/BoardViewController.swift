@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import AVFoundation
 
 
 class BoardViewController: UIViewController {
@@ -15,6 +16,7 @@ class BoardViewController: UIViewController {
     var numeroTablero = 0
     var arrayTuplaCartas = [(imagen: UIImage,indice: Int)]()
     var arrayParesTuplaCartas = [(imagen: UIImage,indice: Int)]()
+    var defaults = UserDefaults.standard
     
     @IBAction func btnReiniciarPartida(_ sender: UIButton) {
         if !comprobandoTirada{ tiradaNueva()}
@@ -48,7 +50,10 @@ class BoardViewController: UIViewController {
     var tiempoTranscurrido = 0
     var minutosTrascurridos = 0
     var segundosTrascurridos = 0
-    
+    var playerGirar = AVAudioPlayer()
+    var playerFallo = AVAudioPlayer()
+    var playerAcierto = AVAudioPlayer()
+    var playerFinPartida = AVAudioPlayer()
     
     
     //base de datos.
@@ -71,6 +76,20 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //cargar sonidos
+        do{
+            playerGirar = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "girarCarta", ofType: "wav")!))
+            playerFallo = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "parejaFallada", ofType: "wav")!))
+            playerAcierto = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "parejaAcertada", ofType: "wav")!))
+            playerFinPartida = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "finPartida", ofType: "wav")!))
+            playerGirar.prepareToPlay()
+            playerFallo.prepareToPlay()
+            playerAcierto.prepareToPlay()
+            playerFinPartida.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
 
         //codigo temporal hasta que la imagen por defecto  y la del anverso tenga el tamaño adecuado.
         //imagen por defecto en Data.
@@ -78,7 +97,14 @@ class BoardViewController: UIViewController {
         reverso = imagenReverso
         //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Custom", style: .done, target: self, action: nil)
         cargarTableroJuego()
-        leerADs()
+        //comprobar si hay que mostrar publicidad o está comprada.
+        let appComprada = defaults.bool(forKey: "com.pablomillanlopez.juegos.CustomMemoryCards")
+        if appComprada{
+            hideAdmobBanner()
+        }
+        else{
+            leerADs()
+        }
     }
     
     @objc func leerADs(){
@@ -168,6 +194,7 @@ class BoardViewController: UIViewController {
     }
 
     @IBAction func btnCarta1(_ sender: UIButton) {
+        reproducirSonido(sonido: playerGirar)
         indiceBotonCartaPulsado = sender.tag
                 print("indice boton pulsado: \(indiceBotonCartaPulsado) ")
         if !comprobandoTirada {
@@ -306,7 +333,9 @@ class BoardViewController: UIViewController {
         else {
             //no son pareja.
             self.perform(#selector(self.girarCarta1), with: nil, afterDelay: 1)
+            self.perform(#selector(self.reproducirSonidoFallo), with: nil, afterDelay: 1)
             self.perform(#selector(self.girarCarta2), with: nil, afterDelay: 1.5)
+            
             self.perform(#selector(self.finTiradaFallida), with: nil, afterDelay: 2)
         }
     }
@@ -325,8 +354,12 @@ class BoardViewController: UIViewController {
  
     }
     
+   @objc func reproducirSonidoFallo(){
+        reproducirSonido(sonido: playerFallo)
+    }
     
     func parejaHecha(){
+        reproducirSonido(sonido: playerAcierto)
         deshabilitarHabilitar(carta: self.cartaPulsada[indiceCartaAbierta1])
         deshabilitarHabilitar(carta: self.cartaPulsada[indiceCartaAbierta2])
         parejasAcertadas += 1
@@ -348,6 +381,7 @@ class BoardViewController: UIViewController {
         indiceCartaAbierta1 = 100
         indiceCartaAbierta2 = 100
         if parejasAcertadas == objetivoParejasAcertadas{
+        reproducirSonido(sonido: playerFinPartida)
         self.performSegue(withIdentifier: "SegueFinPartida8", sender: self)
         }
     }

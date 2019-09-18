@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import StoreKit
 import GoogleMobileAds
 
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
   
-    var tableroAjugar = 0
-
+    //storekit
+    //notificacion que se generará cuando el producto se haya comprado o restaurado correctamente.
+    public let IAPHelperProductPurchasedNotification = "kIAPHelperProductPurchasedNotification"
+    var purchase = [SKProduct]()
+    lazy var priceFormatter: NumberFormatter = {
+        let pf = NumberFormatter()
+        pf.formatterBehavior = .behavior10_4
+        pf.numberStyle = .currency
+        return pf
+    }()
+    var precioCompra = String()
+    var defaults = UserDefaults.standard
+    var appComprada = false
+    var timer = Timer()
+    
+    
+    
+    //facebook
     let shareButton: FBSDKShareButton = {
         let button = FBSDKShareButton()
         let content = FBSDKShareLinkContent()
@@ -26,10 +43,13 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         button.setBackgroundImage(UIImage(named: ""), for: .normal)
         button.setBackgroundImage(UIImage(named: ""), for: .highlighted)
         
-        //button.center = CGPoint(x: 30, y: 30)
-
         return button
     }()
+    
+    //juego
+    var tableroAjugar = 0
+    var playerGirar = AVAudioPlayer()
+
     
     
     @IBOutlet weak var bannerView: GADBannerView!
@@ -40,23 +60,54 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     @IBOutlet weak var btnAbout: UIButton!
     
+
+    @IBAction func btnActionAbout(_ sender: UIButton) {
+        RageProducts.store.restoreCompletedTransactions()
+        
+    }
+    
+    
     var estado = true
     var imagen = UIImage()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        do{
+        playerGirar = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "girarCarta", ofType: "wav")!))
+        playerGirar.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        leerADs()
         
+        //comprobar si hay que mostrar publicidad o está comprada.
+        appComprada = defaults.bool(forKey: "com.pablomillanlopez.juegos.CustomMemoryCards")
+        if appComprada{
+            hideAdmobBanner()
+        }
+        else{
+            leerADs()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(recargarViewcontroller), name: NSNotification.Name(rawValue: IAPHelperProductPurchasedNotification), object: nil)
+        
+        
+        //boton facebook.
         self.btnFacebook.addSubview(shareButton)
         shareButton.center = CGPoint(x: 30, y: 35)
         shareButton.bounds.size.width = self.btnFacebook.frame.width
         shareButton.bounds.size.height = self.btnFacebook.frame.height
+        
     }
     
+    //MARK: publicidad y compras.
+
+    @objc func recargarViewcontroller(){
+        self.viewDidLoad()
+    }
     func leerADs(){
         self.bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         self.bannerView.rootViewController = self
@@ -76,6 +127,99 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         self.bannerView.isHidden = true
     }
     
+    @IBAction func btnCompraApp(_ sender: UIButton) {
+        if appComprada{
+            let alert = UIAlertController(title: NSLocalizedString("titulo_alert_compra", comment: ""), message: NSLocalizedString("mensaje_alert_comprada", comment: ""), preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: "OK", style: .default, handler: {action in return})
+            alert.addAction(actionOk)
+            present(alert, animated: true)
+            }
+            //antes de solicitar la compra hay que comprobar si la app está comprada en itunes pero no consta en defaults,
+            //para restaurar compra si es el caso .
+        else if !appComprada{
+            obtenerListaCompra()
+            }
+ 
+    }
+    
+    //obtiene la lista de compras hechas para saber si ya estaba comprada.
+    func obtenerListaCompra(){
+        RageProducts.store.requestProductsWithCompletionHandler { (success, purchase) in
+            if success{
+                //se le pasa a la variable purchase el resultado de la consulta.
+                self.purchase = purchase
+                //precio de la compra para quitar la publicidad en el formato de la moneda local.
+                self.priceFormatter.locale = self.purchase[0].priceLocale
+                //pasarlo a string
+                self.precioCompra = self.priceFormatter.string(from: purchase[0].price)!
+                self.comprobarRestaurarCompra()
+            }
+            
+        }
+        
+    }
+    
+    //si en defautl no consta ninguna compra, hay que comprobar si en itunnes la compra está hecha y si lo está, restaurarla.
+    func comprobarRestaurarCompra(){
+        //si se reinstala la app, el defaults y el purchasedProductIdentefier estan en false.
+        //por eso se llama a la funcion restoreCompleteTransition para restaurar compra (si la hay)
+        //se añade retraso porque tarda restaurar la compra y muestra la pantalla de compra antes de que restaure la compra y cambie el valor de defaults o purchased...
+        
+        RageProducts.store.restoreCompletedTransactions()
+
+        self.timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (timer) in
+            if RageProducts.store.hasPurchaseProduct(productIdentifier: self.purchase[0].productIdentifier){
+                
+                let alert = UIAlertController(title: NSLocalizedString("titulo_alert_compra", comment: ""), message: NSLocalizedString("mensaje_alert_restaurar", comment: ""), preferredStyle: .alert)
+                
+                let actionOk = UIAlertAction(title: "OK", style: .default, handler: {action in self.restaurarCompras()})
+                let actionCancel = UIAlertAction(title: NSLocalizedString("btnCancelar", comment: ""), style: .default, handler: {action in return})
+                alert.addAction(actionOk)
+                alert.addAction(actionCancel)
+                self.present(alert, animated: true)
+            }
+                //si no hay compra, se le comunica al usuario si quiere proceder a comprar la app.
+                //comprobando antes si la compra está permitida. (control parental)
+            else{
+                if IAPHelper.canMakePayment(){
+                    //se añade la opcion de restaurar por si en una reinstalacion con la compra hecha, el retraso anterior no es suficiente para comprobar si hay compra.
+                    //si se pulsa en restaurar pero no hay compra vuelve a salir en mismo alert.
+                    let alert = UIAlertController(title: NSLocalizedString("titulo_alert_compra", comment: ""), message: "\(NSLocalizedString("mensaje_alert_comprar_app", comment: "")) \(self.precioCompra)", preferredStyle: .alert)
+                    
+                    let actionOk = UIAlertAction(title: NSLocalizedString("btnComprar", comment: ""), style: .default, handler: {action in self.comprarApp()})
+                    let actionRestaurar = UIAlertAction(title: NSLocalizedString("btnRestaurar", comment: ""), style: .default, handler: {action in self.comprobarRestaurarCompra()})
+                    let actionCancel = UIAlertAction(title: NSLocalizedString("btnCancelar", comment: ""), style: .default, handler: {action in return})
+                    alert.addAction(actionOk)
+                    alert.addAction(actionRestaurar)
+                    alert.addAction(actionCancel)
+                    
+                    self.present(alert, animated: true)
+                }
+                else{
+                    let alert = UIAlertController(title: NSLocalizedString("titulo_alert_compra", comment: ""), message: NSLocalizedString("mensaje_alert_no_permiso_compra", comment: ""), preferredStyle: .alert)
+                    let actionOk = UIAlertAction(title: "OK", style: .default, handler: {action in return})
+                    alert.addAction(actionOk)
+                    self.present(alert, animated: true)
+                }
+                
+            }
+        })
+
+    }
+
+    
+    func comprarApp(){
+        RageProducts.store.purchaseProduct(product: purchase[0])
+    }
+    
+    func restaurarCompras(){
+        print("vamos a restaurar la compra")
+        RageProducts.store.restoreCompletedTransactions()
+    }
+    
+
+    //MARK: collectionview.
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        return 6
     }
@@ -91,6 +235,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        reproducirSonido(sonido: playerGirar)
         switch indexPath.row {
         case 0:
             tableroAjugar = 12

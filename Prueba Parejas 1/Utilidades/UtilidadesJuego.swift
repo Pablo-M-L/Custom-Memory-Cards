@@ -38,6 +38,17 @@ func resizeImage(image: UIImage)->UIImage{
     
 }
 
+//reproducir sonido
+func reproducirSonido(sonido: AVAudioPlayer){
+    if sonido.isPlaying {
+        sonido.stop()
+        sonido.play()
+    }
+    else{
+        sonido.play()
+    }
+}
+
 //crea un array de 12 cartas a partir del array de 8 cartas de la base de datos.
 func crearArray6ParejasAleatorias(arrayCartas: [GaleriaFotos6])-> [GaleriaFotos6]{
     var array6ParesA = arrayCartas
@@ -632,11 +643,11 @@ func formatearTiempo(tiempo: Int) -> String?{
     if tiempo > 59{
         let minutosTranscurridos = tiempo / 60
         let segundosTranscurridos = tiempo % 60
-        tiempoFormateado = " \(minutosTranscurridos) MINUTES AND \(segundosTranscurridos) SECONDS "
+        tiempoFormateado = " \(minutosTranscurridos) \(NSLocalizedString("tiempo_formateado_minutos", comment: "")) \(segundosTranscurridos) \(NSLocalizedString("tiempo_formateado_segundos", comment: "")) "
     }
     else if tiempo < 60{
         let segundosTranscurridos = tiempo % 60
-        tiempoFormateado = " \(segundosTranscurridos) SECONDS "
+        tiempoFormateado = " \(segundosTranscurridos) \(NSLocalizedString("tiempo_formateado_segundos", comment: "")) "
     }
     
     return tiempoFormateado
