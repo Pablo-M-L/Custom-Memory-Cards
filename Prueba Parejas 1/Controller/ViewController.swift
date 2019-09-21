@@ -34,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     let shareButton: FBSDKShareButton = {
         let button = FBSDKShareButton()
         let content = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string:"https://apps.apple.com/es/app/super-mario-run/id1145275343") as URL?
+        content.contentURL = NSURL(string:"https://apps.apple.com") as URL?
         button.shareContent = content
         button.setTitle("", for: .normal)
         button.setTitle("", for: .highlighted)
@@ -53,18 +53,11 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     
     @IBOutlet weak var bannerView: GADBannerView!
-
+    let requestConfiguration = GADMobileAds.sharedInstance().requestConfiguration
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var btnFacebook: UIButton!
-    
-    @IBOutlet weak var btnAbout: UIButton!
-    
-
-    @IBAction func btnActionAbout(_ sender: UIButton) {
-        RageProducts.store.restoreCompletedTransactions()
-        
-    }
     
     
     var estado = true
@@ -103,19 +96,22 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         
     }
     
-    //MARK: publicidad y compras.
-
     @objc func recargarViewcontroller(){
         self.viewDidLoad()
     }
+    
+    //MARK: publicidad y compras.
+
     func leerADs(){
-        self.bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        //indica que se muestren anuncios de contenido adaptado a niños.
+        GADMobileAds.sharedInstance().requestConfiguration.tag(forChildDirectedTreatment: true)
+        //inicializa el SDK. solo se hace una vez.
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        //crear anuncio
+        self.bannerView.adUnitID = "ca-app-pub-4831265414200206/8871267675"
         self.bannerView.rootViewController = self
+        //carga anuncios
         self.bannerView.load(GADRequest())
-        //test
-        let request = GADRequest()
-        request.testDevices = [ "fdc54c9b833a5ec8efe5071e24a13cab" ]
-        self.bannerView.load(request)
         showAdmobBanner()
     }
     

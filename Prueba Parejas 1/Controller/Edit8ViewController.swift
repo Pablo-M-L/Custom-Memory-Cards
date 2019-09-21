@@ -26,15 +26,14 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     var fotoSeleccionada: UIImage?
     var indiceCartaAcambiar = 0
     var imagenPorDefecto: UIImage?
-
-    var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+    var interstitial: GADInterstitial!
+    
 
     @IBOutlet weak var collectionViewCartas: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         self.collectionViewCartas.delegate = self
         self.collectionViewCartas.dataSource = self
         
@@ -208,7 +207,7 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
   
     //MARK: bloque importar imagenes de otros tableros
     @IBAction func btnImportar(_ sender: UIButton) {
-        let alert = UIAlertController(title: "IMPORT IMAGES FROM OTHER BOARDS", message: "SELECT A BOARD TO IMPORT IMAGES", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "IMPORT IMAGES FROM OTHER BOARDS", message: "SELECT A BOARD TO IMPORT IMAGES", preferredStyle: .alert)
         let actionBoard12 = UIAlertAction(title: "BOARD 12", style: .default) { (UIAlertAction) in
             self.importarImagenes(tableroOrigen: 6)
         }
@@ -378,16 +377,15 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
             interstitial.present(fromRootViewController: self)
         } else {
             print("Ad wasn't ready")
-            self.perform(#selector(self.mostrarBannerInt), with: nil, afterDelay: 0.5)
+            self.perform(#selector(self.mostrarBannerInt), with: nil, afterDelay: 0.3)
         }
     }
     
     func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        interstitial.delegate = self
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4831265414200206/2338004139")
         let request = GADRequest()
-        request.testDevices = [ "fdc54c9b833a5ec8efe5071e24a13cab" ]
         interstitial.load(request)
+        interstitial.delegate = self
         return interstitial
     }
     

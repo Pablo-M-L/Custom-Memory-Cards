@@ -109,15 +109,10 @@ class BoardViewController: UIViewController {
     
     @objc func leerADs(){
         
-        self.bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        self.bannerView.adUnitID = "ca-app-pub-4831265414200206/8871267675"
         self.bannerView.rootViewController = self
         self.bannerView.load(GADRequest())
-        //test
-        let request = GADRequest()
-        request.testDevices = [ "fdc54c9b833a5ec8efe5071e24a13cab" ]
-        self.bannerView.load(request)
         showAdmobBanner()
-       // hideAdmobBanner()
     }
     
     func showAdmobBanner(){

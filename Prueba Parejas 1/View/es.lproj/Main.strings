@@ -49,3 +49,11 @@
 
 /* Class = "UILabel"; text = "Touch on an Image and Select your Photo for each pair!!"; ObjectID = "uzr-cG-JW0"; */
 "uzr-cG-JW0.text" = "Toca en una Imagen y Selecciona una Foto para cada Parjeja de Cartas!!";
+
+//pantalla about us.
+
+"hSn-pU-24A.text" = "GRACIAS POR DESCARGAR \n Y \n JUGAR CON CUSTOM MEMORY CARDS.";
+"mpZ-d0-0cg.text" = "Bienvenido a custom memory cards,\n  desarrollado por Pablo Millán.";
+"W9o-PP-wBO.text" = "Custom memory cards es un juego memoria, \n en el que tienes que hacer parejas de cartas iguales.\n Pero las cartas del juego no tienen imágenes predefinidas, \n y para poder jugar, primero tienes que personalizar \n las cartas con imágenes o fotos propias, seleccionándolas en la galería de fotos. \n \n Esto facilita y ayuda a entrenar la memoria visual,\n porque las images son de familiares, \n mascotas de la familia, lugares conocidos, \nobjetos cotidianos o personas conocidas. \n \n No hace falta personalizar todas las parejas para poder jugar un tablero, \n solo hay que personalizar una pareja ya se puede jugar.\n Esto permite hacer juegos diferentes, y ademas de memorizar la imagen de esa carta, \n también hay que memorizar donde hay imágenes.";
+"KgY-yQ-MmR.text" = "Desarrollador: Pablo Millán. \n Correo de contacto: patamiapps@gmail.com";
+"7Xe-hj-40z.text" = "Recursos:\n Iconos descargados desde pixabay.com. \n Creadores: \n user:Clker-Free-Vector-Images \n user:IO-Images \n user:OpenIcons \n user:TheDigitalArtist \n Icono redimensionado desde makeicon.com \n Sonidos descargados desde www.noiseforfun.com.";

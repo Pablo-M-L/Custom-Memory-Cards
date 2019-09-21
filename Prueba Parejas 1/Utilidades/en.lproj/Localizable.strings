@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Prueba Parejas 1
+
+  Created by admin on 14/09/2019.
+  Copyright © 2019 admin. All rights reserved.
+*/
+
+//INGLES
+
+
+//pantalla fin de juego
+"label_Nuevo_Record_Conseguido" = "CONGRATULATIONS!! YOU HAVE A NEW GAME RECORD";
+"label_Nuevo_Record_Fallado" = "KEEP TRYING";
+"label_tiempo_no_record" = " NO RECORD ";
+"label_completado_1" = "HAS COMPLETED THE BOARD ";
+"label_completado_2" = " CARDS, WITH ";
+"label_completado_3" = " PAIRS OF CUSTOMIZED CARDS IN : ";
+
+//utilidades
+"tiempo_formateado_minutos" = " MINUTES AND ";
+"tiempo_formateado_segundos" = " SECONDS.";
+
+//pantalla principal, viewcontroller.
+"titulo_alert_compra" = "Remove ADS";
+"mensaje_alert_comprada" = "The app is already purchased.";
+"mensaje_alert_restaurar" = "The game is already purchased, you will perform a restoration of the purchase";
+"mensaje_alert_comprar_app" = "Would you like to buy the Custom Memory Cards game for  ";
+"mensaje_alert_no_permiso_compra" = "No purchases are allowed on this device.";
+"btnComprar" = "BUY";
+"btnRestaurar" = "RESTORE";
+"btnCancelar" = "CANCEL";
+
+//pantalla de ayuda.
+"texto_ayuda_btnComprar" =
+            "BUY THE GAME. \n You can buy the game and remove advertising from the screens. \n You can also restore the purchase, if you have already bought it before.";
+"texto_ayuda_btnFace" =
+            "SHARE ON FACEBOOK.\n If you liked Custom Memory Cards, you can recommend it in your Facebook account.";
+"texto_ayuda_Tablero" =
+            "SELECT GAME BOARD. \n Each of the buttons opens a game board to play. \n The number drawn on each button corresponds to the number of cards on the game board.";
+"texto_ayuda_pantalla_tablero" =
+            "GAME BOARD. \n Uncover the cards two by two and make equal pairs to complete the board.";
+"texto_ayuda_btnPersonalizar" =
+            "CUSTOMIZE GAME. \n Before you start playing for the first time, \n and whenever you want \n you can go to the settings screen and customize each pair with the photos you want for each pair.";
+"texto_ayuda_pantalla_personalizar" =
+            "CUSTOMIZE PAIRS. \n Each image corresponds to a pair. \n Touching an image will open your photo gallery, \n where you can select the photo you want. \n No need to customize all pairs, \n with a personalized pair you can go back to the panel and play. \n You can also reset the default image by a touch on the garbage can icon.";
+"texto_ayuda_btnImportar" =
+            "IMPORT BUTTON. \n You can take advantage of personalized images on other game boards. Click on the import button and select the board from which you want to import photos.";
+"texto_ayuda_fin" = "END";
