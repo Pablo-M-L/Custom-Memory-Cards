@@ -25,17 +25,36 @@
 "titulo_alert_compra" = "Remove ADS";
 "mensaje_alert_comprada" = "The app is already purchased.";
 "mensaje_alert_restaurar" = "The game is already purchased, you will perform a restoration of the purchase";
-"mensaje_alert_comprar_app" = "Would you like to buy the Custom Memory Cards game for  ";
+"mensaje_alert_comprar_app" = "Would you like to buy the Custom Pairs of Cards. game for  ";
 "mensaje_alert_no_permiso_compra" = "No purchases are allowed on this device.";
 "btnComprar" = "BUY";
 "btnRestaurar" = "RESTORE";
 "btnCancelar" = "CANCEL";
+"titulo-alert-primerJuego" = "¡¡¡HELLO!!!";
+"mensaje-alert-primerJuego" = "Thank you for choosing custom pairs of cards, before you start playing we recommend seeing the instructions for use. \n Touch on the blue icon of \" user guide \"to see the instructions.";
+"boton-alert-primerJuego" = "INSTRUCTIONS";
+
+//pantalla editar, ALERTCONTROLLER
+"titulo_alert_importar" = "IMPORT IMAGES FROM ANOTHER GAME BOARD";
+"mensaje_alert_importar" = "SELECT A GAME BOARD TO IMPORT FROM";
+"tablero12" = "BOARD 12";
+"tablero20" = "BOARD 20";
+"tablero24" = "BOARD 24";
+"tablero30" = "BOARD 30";
+"tablero36" = "BOARD 36";
+"tablero42" = "BOARD 42";
+
+//pantalla tablero
+"titulo_alertTitulo_noparejas" = "There are no custom couples";
+"titulo_alertMensaje_noparejas" = "In order to play, you must customize at least one couple with an image from the gallery";
+"titulo_alertOK_noparejas" = "Custom";
+"titulo_alertCancel_noparejas" = "Cancel";
 
 //pantalla de ayuda.
 "texto_ayuda_btnComprar" =
             "BUY THE GAME. \n You can buy the game and remove advertising from the screens. \n You can also restore the purchase, if you have already bought it before.";
 "texto_ayuda_btnFace" =
-            "SHARE ON FACEBOOK.\n If you liked Custom Memory Cards, you can recommend it in your Facebook account.";
+            "SHARE ON FACEBOOK.\n If you liked Custom Pairs of Cards., you can recommend it in your Facebook account.";
 "texto_ayuda_Tablero" =
             "SELECT GAME BOARD. \n Each of the buttons opens a game board to play. \n The number drawn on each button corresponds to the number of cards on the game board.";
 "texto_ayuda_pantalla_tablero" =

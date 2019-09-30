@@ -19,6 +19,7 @@ class BoardViewController: UIViewController {
     var defaults = UserDefaults.standard
     
     @IBAction func btnReiniciarPartida(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion2)
         if !comprobandoTirada{ tiradaNueva()}
     }
     
@@ -28,6 +29,14 @@ class BoardViewController: UIViewController {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
+    @IBAction func btnVolver(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion)
+        performSegue(withIdentifier: "segueBoardVuelveMenu", sender: nil)
+    }
+    
+    @IBAction func btnPersonalizar(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion)
+    }
     var imagenCarta = UIImage()
     var imagenCarta2 = UIImage()
     var reverso = UIImage()
@@ -41,6 +50,8 @@ class BoardViewController: UIViewController {
     var CartaAgirar = 0
     var numeroCartaConfigurada1 = 0
     var numeroCartaConfigurada2 = 0
+    var girandoUnaCarta = false
+    
     
     //partida
     var arrayEstadoCartas = [Bool]() //reverso false, anverso true.
@@ -50,10 +61,12 @@ class BoardViewController: UIViewController {
     var tiempoTranscurrido = 0
     var minutosTrascurridos = 0
     var segundosTrascurridos = 0
-    var playerGirar = AVAudioPlayer()
-    var playerFallo = AVAudioPlayer()
-    var playerAcierto = AVAudioPlayer()
-    var playerFinPartida = AVAudioPlayer()
+    var playerGirar: AVAudioPlayer!
+    var playerFallo: AVAudioPlayer!
+    var playerAcierto: AVAudioPlayer!
+    var playerFinPartida: AVAudioPlayer!
+    var playerPulsacion: AVAudioPlayer!
+    var playerPulsacion2: AVAudioPlayer!
     
     
     //base de datos.
@@ -77,26 +90,37 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //cargar sonidos
-        do{
-            playerGirar = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "girarCarta", ofType: "wav")!))
-            playerFallo = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "parejaFallada", ofType: "wav")!))
-            playerAcierto = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "parejaAcertada", ofType: "wav")!))
-            playerFinPartida = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "finPartida", ofType: "wav")!))
+        if let soundURL = Bundle.main.url(forResource: "pulsacionBtn", withExtension: "wav"),
+           let soundURL2 = Bundle.main.url(forResource: "pulsacionBtn2", withExtension: "wav"),
+           let soundURLgirar = Bundle.main.url(forResource: "girarCarta", withExtension: "wav"),
+           let soundURLFallida = Bundle.main.url(forResource: "parejaFallada", withExtension: "wav"),
+           let soundURLAcertada = Bundle.main.url(forResource: "parejaAcertada", withExtension: "wav"),
+           let soundURLFin = Bundle.main.url(forResource: "finPartida", withExtension: "wav"){
+            
+            do {
+                playerPulsacion = try AVAudioPlayer(contentsOf: soundURL)
+                playerPulsacion2 = try AVAudioPlayer(contentsOf: soundURL2)
+                playerGirar = try AVAudioPlayer(contentsOf: soundURLgirar)
+                playerFallo = try AVAudioPlayer(contentsOf: soundURLFallida)
+                playerAcierto = try AVAudioPlayer(contentsOf: soundURLAcertada)
+                playerFinPartida = try AVAudioPlayer(contentsOf: soundURLFin)
+            } catch {
+                print(error)
+            }
             playerGirar.prepareToPlay()
             playerFallo.prepareToPlay()
             playerAcierto.prepareToPlay()
             playerFinPartida.prepareToPlay()
-        }
-        catch{
-            print(error)
+            playerPulsacion.prepareToPlay()
+            playerPulsacion2.prepareToPlay()
         }
 
-        //codigo temporal hasta que la imagen por defecto  y la del anverso tenga el tamaño adecuado.
         //imagen por defecto en Data.
         guard let imagenReverso = UIImage(named: "reverso") else {return}
         reverso = imagenReverso
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Custom", style: .done, target: self, action: nil)
+
         cargarTableroJuego()
+        
         //comprobar si hay que mostrar publicidad o está comprada.
         let appComprada = defaults.bool(forKey: "com.pablomillanlopez.juegos.CustomMemoryCards")
         if appComprada{
@@ -189,18 +213,18 @@ class BoardViewController: UIViewController {
     }
 
     @IBAction func btnCarta1(_ sender: UIButton) {
-        reproducirSonido(sonido: playerGirar)
         indiceBotonCartaPulsado = sender.tag
-                print("indice boton pulsado: \(indiceBotonCartaPulsado) ")
-        if !comprobandoTirada {
+        if !comprobandoTirada && !girandoUnaCarta{
+            reproducirSonido(sonido: playerGirar)
             //comprobar si es la primera o la segunda carta pulsada. si se pulsa dos veces la misma primera carta se girará y finaliza tirada.
             if !tiradaIniciada{
                 indiceCartaAbierta1 = indiceBotonCartaPulsado
                 numeroCartaConfigurada1 = convertirIndiceSegunTablero(tableroJuego: numeroTablero, indiceCartaPulsada: sender.tag)
-
+                girandoUnaCarta = true
                 girarCarta1()
             }
             else if tiradaIniciada && indiceCartaAbierta1 == indiceBotonCartaPulsado{
+                girandoUnaCarta = true
                 girarCarta1()
                 indiceCartaAbierta1 = 100
             }
@@ -208,7 +232,7 @@ class BoardViewController: UIViewController {
                 comprobandoTirada = !comprobandoTirada
                 indiceCartaAbierta2 = indiceBotonCartaPulsado
                 numeroCartaConfigurada2 = convertirIndiceSegunTablero(tableroJuego: numeroTablero, indiceCartaPulsada: sender.tag)
-
+                girandoUnaCarta = true
                 girarCarta2()
                 comprobarPareja(carta1: arrayParesTuplaCartas[numeroCartaConfigurada1], carta2: arrayParesTuplaCartas[numeroCartaConfigurada2])
             }}
@@ -246,10 +270,34 @@ class BoardViewController: UIViewController {
         
         calcularParejasAconseguir(objetivo: arrayTuplaCartas)
         
+        //comprobar si no hay ninguna paraja y avisar de configurar si no la hay.
+        print("tabler: \(numeroTablero) y objetivo: \(objetivoParejasAcertadas)")
+        if objetivoParejasAcertadas == 0{
+            let alert = UIAlertController(title: NSLocalizedString("titulo_alertTitulo_noparejas", comment: ""), message: NSLocalizedString("titulo_alertMensaje_noparejas", comment: ""), preferredStyle: .alert)
+            
+            let actionOK = UIAlertAction(title:NSLocalizedString("titulo_alertOK_noparejas", comment: ""), style: .default, handler: {
+                action in
+                self.performSegue(withIdentifier: "segueBoardToCustom", sender: nil)
+            })
+            let actionCancel = UIAlertAction(title: NSLocalizedString("titulo_alertCancel_noparejas", comment: ""), style: .default, handler: {
+                action in
+                self.performSegue(withIdentifier: "segueBoardVuelveMenu", sender: nil)
+            })
+            
+            alert.addAction(actionOK)
+            alert.addAction(actionCancel)
+            
+            present(alert, animated: true)
+        }
+        
         //poner el tablero con la imagen de reverso y habilitar todas las cartas.
         for i in 0...41{
             cartaPulsada[i].imageEdgeInsets = UIEdgeInsets(top: 2 , left: 3, bottom: 2, right: 3)
             cartaPulsada[i].setImage(reverso, for: .normal)
+            cartaPulsada[i].shadowOpacity = 1
+            cartaPulsada[i].cornerRadius = 3
+            cartaPulsada[i].borderWidth = 3
+            cartaPulsada[i].borderColor = UIColor.blue
             self.cartaPulsada[i].isEnabled = true
         }
         
@@ -321,7 +369,7 @@ class BoardViewController: UIViewController {
     func comprobarPareja(carta1: (imagen: UIImage,indice: Int), carta2: (imagen: UIImage,indice: Int)){
         
         //si el indice de alguna de las dos cartas es mayor de 1000, es que tiene la imagen por defecto.
-        //si los dos indices son menores de 10 (es decir con imagen), y son iguales es que son la misma imagen.
+        //si los dos indices son menores de 1000 (es decir con imagen), y son iguales es que son la misma imagen.
         if carta1.indice < 1000 && carta2.indice < 1000 && carta1.indice == carta2.indice{
             parejaHecha()
         }
@@ -358,9 +406,7 @@ class BoardViewController: UIViewController {
         deshabilitarHabilitar(carta: self.cartaPulsada[indiceCartaAbierta1])
         deshabilitarHabilitar(carta: self.cartaPulsada[indiceCartaAbierta2])
         parejasAcertadas += 1
-        self.perform(#selector(self.finTiradaAcertada), with: nil, afterDelay: 1)
-
-      
+        self.perform(#selector(self.finTiradaAcertada), with: nil, afterDelay: 0.5)
     }
     
     @objc func finTiradaFallida(){
@@ -383,6 +429,7 @@ class BoardViewController: UIViewController {
     
     @objc func secuenciaGiro(cartaPulsada: UIButton){
         self.perform(#selector(cambiar), with: nil, afterDelay: 0.15)
+        self.perform(#selector(estadoGirandoUnaCarta), with: nil, afterDelay: 0.35)
         
         let animationPequeñoEscalaX = CABasicAnimation(keyPath: "transform.scale.x")
         animationPequeñoEscalaX.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
@@ -406,8 +453,11 @@ class BoardViewController: UIViewController {
         
     }
     
+    @objc func estadoGirandoUnaCarta(){
+        girandoUnaCarta = false
+    }
+    
     @objc func cambiar(){
-        print("carta pulsada es: \(CartaAgirar) y el tag es: \(cartaPulsada[self.CartaAgirar].tag)")
         let carta = self.cartaPulsada[self.CartaAgirar]
         let numeroCartaCofigurada = convertirIndiceSegunTablero(tableroJuego: numeroTablero, indiceCartaPulsada: cartaPulsada[self.CartaAgirar].tag)
         var imagen = UIImage()
@@ -416,7 +466,6 @@ class BoardViewController: UIViewController {
             imagen = reverso
         }
         else{
-            print("funcion cambiar \(numeroCartaCofigurada)")
             imagen = arrayParesTuplaCartas[numeroCartaCofigurada].imagen
         }
         
@@ -441,7 +490,6 @@ class BoardViewController: UIViewController {
                 objetivoParejasAcertadas += 1
             }
         }
-        print("total cartas configuradas \(objetivoParejasAcertadas)")
     }
 
     // MARK: - Navigation

@@ -150,7 +150,6 @@ extension IAPHelper: SKPaymentTransactionObserver{
     }
     
     private func failedTransaction(transaction: SKPaymentTransaction){
-        print("falloooooooo")
         if transaction.error?.localizedDescription != "paymentCancelled"{
             print("transaction error: \((transaction.error?.localizedDescription)!)")
         }
@@ -159,7 +158,6 @@ extension IAPHelper: SKPaymentTransactionObserver{
     
     //guarda en el userDefaults si ya esta comprado.
     private func provideContentForProductID(productIdentifier: ProductIdentifier){
-        print("compra o restauracion hecha")
         self.purchaseProductsIdentifiers.insert(productIdentifier)
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: productIdentifier)

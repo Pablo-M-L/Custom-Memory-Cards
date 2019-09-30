@@ -14,6 +14,7 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     var numeroTableroRecibido = 0
     var arrayTuplaCartas = [(imagen: UIImage,indice: Int)]()
     var defaults = UserDefaults.standard
+    var interstitialMostrado = false
    
     var arrayCartas6 = [GaleriaFotos6]()
     var arrayCartas10 = [GaleriaFotos10]()
@@ -27,12 +28,29 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     var indiceCartaAcambiar = 0
     var imagenPorDefecto: UIImage?
     var interstitial: GADInterstitial!
+    var playerPulsacion : AVAudioPlayer!
+    var playerPulsacion2 : AVAudioPlayer!
     
-
+    @IBAction func btnVolver(_ sender: Any) {
+        reproducirSonido(sonido: playerPulsacion)
+    }
+    
     @IBOutlet weak var collectionViewCartas: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            if let soundURL = Bundle.main.url(forResource: "pulsacionBtn", withExtension: "wav"),
+               let soundURL2 = Bundle.main.url(forResource: "pulsacionBtn2", withExtension: "wav"){
+                
+                do {
+                    playerPulsacion = try AVAudioPlayer(contentsOf: soundURL)
+                    playerPulsacion2 = try AVAudioPlayer(contentsOf: soundURL2)
+                } catch {
+                    print(error)
+                }
+                playerPulsacion.prepareToPlay()
+                playerPulsacion2.prepareToPlay()
+            }
         
         self.collectionViewCartas.delegate = self
         self.collectionViewCartas.dataSource = self
@@ -136,6 +154,7 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        reproducirSonido(sonido: playerPulsacion2)
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
@@ -207,23 +226,24 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
   
     //MARK: bloque importar imagenes de otros tableros
     @IBAction func btnImportar(_ sender: UIButton) {
-        let alert = UIAlertController(title: "IMPORT IMAGES FROM OTHER BOARDS", message: "SELECT A BOARD TO IMPORT IMAGES", preferredStyle: .alert)
-        let actionBoard12 = UIAlertAction(title: "BOARD 12", style: .default) { (UIAlertAction) in
+        reproducirSonido(sonido: playerPulsacion2)
+        let alert = UIAlertController(title: NSLocalizedString("titulo_alert_importar", comment: ""), message: NSLocalizedString("mensaje_alert_importar", comment: ""), preferredStyle: .alert)
+        let actionBoard12 = UIAlertAction(title: NSLocalizedString("tablero12", comment: ""), style: .default) { (UIAlertAction) in
             self.importarImagenes(tableroOrigen: 6)
         }
-        let actionBoard20 = UIAlertAction(title: "BOARD 20", style: .default, handler: { action in
+        let actionBoard20 = UIAlertAction(title: NSLocalizedString("tablero20", comment: ""), style: .default, handler: { action in
             self.importarImagenes(tableroOrigen: 10)
         })
-        let actionBoard24 = UIAlertAction(title: "BOARD 24", style: .default, handler: { action in
+        let actionBoard24 = UIAlertAction(title: NSLocalizedString("tablero24", comment: ""), style: .default, handler: { action in
             self.importarImagenes(tableroOrigen: 12)
         })
-        let actionBoard30 = UIAlertAction(title: "BOARD 30", style: .default, handler: { action in
+        let actionBoard30 = UIAlertAction(title: NSLocalizedString("tablero30", comment: ""), style: .default, handler: { action in
             self.importarImagenes(tableroOrigen: 15)
         })
-        let actionBoard36 = UIAlertAction(title: "BOARD 36", style: .default, handler: { action in
+        let actionBoard36 = UIAlertAction(title: NSLocalizedString("tablero36", comment: ""), style: .default, handler: { action in
             self.importarImagenes(tableroOrigen: 18)
         })
-        let actionBoard42 = UIAlertAction(title: "BOARD 42", style: .default, handler: { action in
+        let actionBoard42 = UIAlertAction(title: NSLocalizedString("tablero42", comment: ""), style: .default, handler: { action in
             self.importarImagenes(tableroOrigen: 21)
         })
         
@@ -334,7 +354,6 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func cambiarImagenimportada(imagen: UIImage, indice: Int, porDefecto: Bool){
-        print(numeroTableroRecibido)
         switch numeroTableroRecibido {
         case 6:
             //si la imagen es la imagen por defecto no se tiene que cambiar
@@ -374,10 +393,20 @@ class Edit8ViewController: UIViewController, UICollectionViewDelegate, UICollect
     //MARK: bloque interstitial
     @objc func mostrarBannerInt(){
         if interstitial.isReady {
+            interstitialMostrado = true
             interstitial.present(fromRootViewController: self)
         } else {
             print("Ad wasn't ready")
+            if !interstitialMostrado{
             self.perform(#selector(self.mostrarBannerInt), with: nil, afterDelay: 0.3)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if !interstitialMostrado{
+            interstitialMostrado = true
+            print(interstitialMostrado)
         }
     }
     

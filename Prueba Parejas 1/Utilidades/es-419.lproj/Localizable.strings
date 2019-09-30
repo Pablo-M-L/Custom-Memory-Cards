@@ -29,6 +29,25 @@
 "btnComprar" = "COMPRAR";
 "btnRestaurar" = "RESTAURAR";
 "btnCancelar" = "CANCELAR";
+"titulo-alert-primerJuego" = "¡¡¡HOLA!!!";
+"mensaje-alert-primerJuego" = "Gracias por escoger custom pairs of cards, antes de empezar a jugar recomendamos ver las instrucciones de uso.\n Pulsa en el icono azul de \"user guide\" para ver las instrucciones.";
+"boton-alert-primerJuego" = "INSTRUCCIONES";
+
+//pantalla tablero
+"titulo_alertTitulo_noparejas" = "No hay parejas personalizadas";
+"titulo_alertMensaje_noparejas" = "Para poder jugar hay que personalizar como minimo una pareja con una imagen de la galeria";
+"titulo_alertOK_noparejas" = "Personalizar";
+"titulo_alertCancel_noparejas" = "Cancelar";
+
+//pantalla editar, ALERTCONTROLLER
+"titulo_alert_importar" = "IMPORTAR IMAGENES DE OTRO TABLERO";
+"mensaje_alert_importar" = "SELECCIONA UN TABLERO DESDE EL QUE IMPORTAR";
+"tablero12" = "TABLERO 12";
+"tablero20" = "TABLERO 20";
+"tablero24" = "TABLERO 24";
+"tablero30" = "TABLERO 30";
+"tablero36" = "TABLERO 36";
+"tablero42" = "TABLERO 42";
 
 //pantalla de ayuda.
 "texto_ayuda_btnComprar" =

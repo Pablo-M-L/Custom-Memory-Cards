@@ -13,13 +13,14 @@
 		8437F95C230298CE00E178CB /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437F95B230298CE00E178CB /* nanopb.framework */; };
 		8469BF6922F82A92001A677F /* FinPartidaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8469BF6822F82A92001A677F /* FinPartidaViewController.swift */; };
 		846ECE17232F7C2800B11D5B /* InstruccionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846ECE16232F7C2800B11D5B /* InstruccionesViewController.swift */; };
+		84A431D52341E64400AC086A /* pulsacionBtn2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A431D42341E64400AC086A /* pulsacionBtn2.wav */; };
+		84A431D72341E6B400AC086A /* pulsacionBtn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A431D62341E6B400AC086A /* pulsacionBtn.wav */; };
+		84A69FFA233A6345004119D9 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A69FF9233A6345004119D9 /* AboutViewController.swift */; };
 		84C7AED22311665100A94D21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C7AED12311665100A94D21 /* Assets.xcassets */; };
 		84CC9DC623257253004B0C57 /* parejaAcertada.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84CC9DC223257252004B0C57 /* parejaAcertada.wav */; };
 		84CC9DC723257253004B0C57 /* parejaFallada.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84CC9DC323257253004B0C57 /* parejaFallada.wav */; };
 		84CC9DC823257253004B0C57 /* girarCarta.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84CC9DC423257253004B0C57 /* girarCarta.wav */; };
 		84CC9DC923257253004B0C57 /* finPartida.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84CC9DC523257253004B0C57 /* finPartida.wav */; };
-		84CC9DD52326CFDB004B0C57 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CC9DD42326CFDB004B0C57 /* FBSDKShareKit.framework */; };
-		84CC9DDD2328C337004B0C57 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CC9DDC2328C337004B0C57 /* FBSDKCoreKit.framework */; };
 		84CC9DE023290422004B0C57 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC9DDE23290422004B0C57 /* IAPHelper.swift */; };
 		84CC9DE123290422004B0C57 /* RageProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC9DDF23290422004B0C57 /* RageProducts.swift */; };
 		84CC9DE3232958FE004B0C57 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CC9DE2232958FE004B0C57 /* StoreKit.framework */; };
@@ -36,9 +37,11 @@
 		84F6695122F44586001FA154 /* UtilidadesJuego.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6695022F44586001FA154 /* UtilidadesJuego.swift */; };
 		84F9F54F231AF36B00AFAAAD /* CeldasMenuPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F9F54E231AF36B00AFAAAD /* CeldasMenuPrincipal.swift */; };
 		84FEE4B0232D5CEF00C91FE3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84FEE4B2232D5CEF00C91FE3 /* Localizable.strings */; };
+		CFA948FAE556F51B297099D3 /* Pods_Prueba_Parejas_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5CF79557338CCEA3A3A5EDF /* Pods_Prueba_Parejas_1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6576D40A8EDE5441C3AA1838 /* Pods-Prueba Parejas 1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba Parejas 1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba Parejas 1/Pods-Prueba Parejas 1.debug.xcconfig"; sourceTree = "<group>"; };
 		8437F9552302981F00E178CB /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		8437F957230298B300E178CB /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
 		8437F959230298BE00E178CB /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
@@ -59,20 +62,21 @@
 		846ECE11232F7A5200B11D5B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		846ECE12232F7A5200B11D5B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		846ECE13232F7A5200B11D5B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		846ECE15232F7BDD00B11D5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		846ECE16232F7C2800B11D5B /* InstruccionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstruccionesViewController.swift; sourceTree = "<group>"; };
+		84A431D42341E64400AC086A /* pulsacionBtn2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pulsacionBtn2.wav; sourceTree = "<group>"; };
+		84A431D62341E6B400AC086A /* pulsacionBtn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pulsacionBtn.wav; sourceTree = "<group>"; };
+		84A431DA2342036200AC086A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		84A69FF9233A6345004119D9 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		84C7AED12311665100A94D21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84CC9DC223257252004B0C57 /* parejaAcertada.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = parejaAcertada.wav; sourceTree = "<group>"; };
 		84CC9DC323257253004B0C57 /* parejaFallada.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = parejaFallada.wav; sourceTree = "<group>"; };
 		84CC9DC423257253004B0C57 /* girarCarta.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = girarCarta.wav; sourceTree = "<group>"; };
 		84CC9DC523257253004B0C57 /* finPartida.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finPartida.wav; sourceTree = "<group>"; };
-		84CC9DD42326CFDB004B0C57 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		84CC9DD6232777BE004B0C57 /* Prueba Parejas 1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prueba Parejas 1-Bridging-Header.h"; sourceTree = "<group>"; };
-		84CC9DDC2328C337004B0C57 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		84CC9DDE23290422004B0C57 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		84CC9DDF23290422004B0C57 /* RageProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RageProducts.swift; sourceTree = "<group>"; };
 		84CC9DE2232958FE004B0C57 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		84F6692822F1F620001FA154 /* Prueba Parejas 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prueba Parejas 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84F6692822F1F620001FA154 /* Pairs of Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pairs of Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F6692B22F1F620001FA154 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F6692D22F1F620001FA154 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84F6693022F1F620001FA154 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 		84FEE4AD232D59A300C91FE3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		84FEE4B1232D5CEF00C91FE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84FEE4B3232D5CF600C91FE3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9EF4C5D48A89BDB290C94583 /* Pods-Prueba Parejas 1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba Parejas 1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba Parejas 1/Pods-Prueba Parejas 1.release.xcconfig"; sourceTree = "<group>"; };
+		F5CF79557338CCEA3A3A5EDF /* Pods_Prueba_Parejas_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba_Parejas_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +108,8 @@
 				84CC9DE3232958FE004B0C57 /* StoreKit.framework in Frameworks */,
 				8437F958230298B300E178CB /* GoogleAppMeasurement.framework in Frameworks */,
 				8437F95C230298CE00E178CB /* nanopb.framework in Frameworks */,
-				84CC9DD52326CFDB004B0C57 /* FBSDKShareKit.framework in Frameworks */,
-				84CC9DDD2328C337004B0C57 /* FBSDKCoreKit.framework in Frameworks */,
 				8437F9562302981F00E178CB /* GoogleMobileAds.framework in Frameworks */,
+				CFA948FAE556F51B297099D3 /* Pods_Prueba_Parejas_1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +124,7 @@
 				84F6694022F201C7001FA154 /* BoardViewController.swift */,
 				84F6692D22F1F620001FA154 /* ViewController.swift */,
 				846ECE16232F7C2800B11D5B /* InstruccionesViewController.swift */,
+				84A69FF9233A6345004119D9 /* AboutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -144,20 +150,13 @@
 			path = "Prueba Parejas 1";
 			sourceTree = "<group>";
 		};
-		84CC9DD32326C9BD004B0C57 /* facebook */ = {
-			isa = PBXGroup;
-			children = (
-				84CC9DDC2328C337004B0C57 /* FBSDKCoreKit.framework */,
-				84CC9DD42326CFDB004B0C57 /* FBSDKShareKit.framework */,
-			);
-			path = facebook;
-			sourceTree = "<group>";
-		};
 		84CC9DD923277AC8004B0C57 /* sonidos */ = {
 			isa = PBXGroup;
 			children = (
 				84CC9DC523257253004B0C57 /* finPartida.wav */,
 				84CC9DC423257253004B0C57 /* girarCarta.wav */,
+				84A431D42341E64400AC086A /* pulsacionBtn2.wav */,
+				84A431D62341E6B400AC086A /* pulsacionBtn.wav */,
 				84CC9DC223257252004B0C57 /* parejaAcertada.wav */,
 				84CC9DC323257253004B0C57 /* parejaFallada.wav */,
 			);
@@ -173,15 +172,15 @@
 				8437F959230298BE00E178CB /* GoogleUtilities.framework */,
 				8437F957230298B300E178CB /* GoogleAppMeasurement.framework */,
 				8437F9552302981F00E178CB /* GoogleMobileAds.framework */,
-				84CC9DD32326C9BD004B0C57 /* facebook */,
 				84FA855523202FC9009D97DD /* Frameworks */,
+				ED62AEE39DDBF54B7CB9F44B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		84F6692922F1F620001FA154 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84F6692822F1F620001FA154 /* Prueba Parejas 1.app */,
+				84F6692822F1F620001FA154 /* Pairs of Cards.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,8 +225,18 @@
 			isa = PBXGroup;
 			children = (
 				84CC9DE2232958FE004B0C57 /* StoreKit.framework */,
+				F5CF79557338CCEA3A3A5EDF /* Pods_Prueba_Parejas_1.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED62AEE39DDBF54B7CB9F44B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6576D40A8EDE5441C3AA1838 /* Pods-Prueba Parejas 1.debug.xcconfig */,
+				9EF4C5D48A89BDB290C94583 /* Pods-Prueba Parejas 1.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,9 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84F6693D22F1F625001FA154 /* Build configuration list for PBXNativeTarget "Prueba Parejas 1" */;
 			buildPhases = (
+				D864FB8E436325A8868E085D /* [CP] Check Pods Manifest.lock */,
 				84F6692422F1F620001FA154 /* Sources */,
 				84F6692522F1F620001FA154 /* Frameworks */,
 				84F6692622F1F620001FA154 /* Resources */,
+				CAECF782150B00CBE3B01C86 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,7 +258,7 @@
 			);
 			name = "Prueba Parejas 1";
 			productName = "Prueba Parejas 1";
-			productReference = 84F6692822F1F620001FA154 /* Prueba Parejas 1.app */;
+			productReference = 84F6692822F1F620001FA154 /* Pairs of Cards.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -305,16 +316,65 @@
 			files = (
 				84CC9DC823257253004B0C57 /* girarCarta.wav in Resources */,
 				84CC9DC723257253004B0C57 /* parejaFallada.wav in Resources */,
+				84A431D72341E6B400AC086A /* pulsacionBtn.wav in Resources */,
 				84F6693922F1F625001FA154 /* LaunchScreen.storyboard in Resources */,
 				84C7AED22311665100A94D21 /* Assets.xcassets in Resources */,
 				84CC9DC923257253004B0C57 /* finPartida.wav in Resources */,
 				84FEE4B0232D5CEF00C91FE3 /* Localizable.strings in Resources */,
 				84CC9DC623257253004B0C57 /* parejaAcertada.wav in Resources */,
 				84F6693122F1F620001FA154 /* Main.storyboard in Resources */,
+				84A431D52341E64400AC086A /* pulsacionBtn2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CAECF782150B00CBE3B01C86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Prueba Parejas 1/Pods-Prueba Parejas 1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKMessengerShareKit/FBSDKMessengerShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKPlacesKit/FBSDKPlacesKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKMessengerShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKPlacesKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prueba Parejas 1/Pods-Prueba Parejas 1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D864FB8E436325A8868E085D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Prueba Parejas 1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84F6692422F1F620001FA154 /* Sources */ = {
@@ -324,6 +384,7 @@
 				84CC9DE123290422004B0C57 /* RageProducts.swift in Sources */,
 				84F6695122F44586001FA154 /* UtilidadesJuego.swift in Sources */,
 				846ECE17232F7C2800B11D5B /* InstruccionesViewController.swift in Sources */,
+				84A69FFA233A6345004119D9 /* AboutViewController.swift in Sources */,
 				84F6694A22F366D2001FA154 /* FactoriaImagenes.swift in Sources */,
 				84F6694322F201E6001FA154 /* Edit8ViewController.swift in Sources */,
 				8469BF6922F82A92001A677F /* FinPartidaViewController.swift in Sources */,
@@ -351,7 +412,7 @@
 				846ECE0B232F7A3F00B11D5B /* es-419 */,
 				846ECE0E232F7A4B00B11D5B /* fr-CA */,
 				846ECE11232F7A5200B11D5B /* pt-BR */,
-				846ECE15232F7BDD00B11D5B /* en */,
+				84A431DA2342036200AC086A /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -439,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -496,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
@@ -509,10 +570,12 @@
 		};
 		84F6693E22F1F625001FA154 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6576D40A8EDE5441C3AA1838 /* Pods-Prueba Parejas 1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = MZKL96N2NF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,8 +588,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pablomillanlopez.juegos.CustomMemoryCards;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pairs of Cards";
 				SWIFT_OBJC_BRIDGING_HEADER = "Prueba Parejas 1/Utilidades/Prueba Parejas 1-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -536,10 +600,12 @@
 		};
 		84F6693F22F1F625001FA154 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EF4C5D48A89BDB290C94583 /* Pods-Prueba Parejas 1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = MZKL96N2NF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,8 +618,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pablomillanlopez.juegos.CustomMemoryCards;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pairs of Cards";
 				SWIFT_OBJC_BRIDGING_HEADER = "Prueba Parejas 1/Utilidades/Prueba Parejas 1-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

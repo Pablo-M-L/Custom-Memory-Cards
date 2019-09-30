@@ -12,11 +12,24 @@ class InstruccionesViewController: UIViewController {
     
      let animFlecha = CALayer()
      let imgagenFondo = CALayer()
+    var playerPulsacion: AVAudioPlayer!
     
     var pasoNumero = 1
 
     @IBOutlet weak var textoAyuda: UILabel!
     
+    @IBAction func btnClose(_ sender: UIButton) {
+        if let soundURL = Bundle.main.url(forResource: "pulsacionBtn", withExtension: "wav"){
+            
+            do {
+                playerPulsacion = try AVAudioPlayer(contentsOf: soundURL)
+            } catch {
+                print(error)
+            }
+            playerPulsacion.prepareToPlay()
+        }
+        reproducirSonido(sonido: playerPulsacion)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //imagen de pantalla

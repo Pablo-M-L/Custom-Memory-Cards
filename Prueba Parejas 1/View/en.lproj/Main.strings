@@ -12,7 +12,7 @@
 "Bap-Ks-XrD.text" = "No Custom Photo";
 
 /* Class = "UILabel"; text = "Custom Memory Card"; ObjectID = "Cnk-Oi-uWc"; */
-"Cnk-Oi-uWc.text" = "Custom Memory Card";
+"Cnk-Oi-uWc.text" = "Custom Pairs of Cards.";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "Fji-3I-0c4"; */
 "Fji-3I-0c4.title" = " ";
@@ -52,11 +52,11 @@
 
 
 //pantalla about us.
-"hSn-pU-24A.text" = "THANK YOU FOR DOWNLOADING \n AND \n PLAY WITH CUSTOM MEMORY CARDS.";
+"hSn-pU-24A.text" = "THANK YOU FOR DOWNLOADING \n AND \n PLAY WITH CUSTOM PAIRS of CARDS.";
 
-"mpZ-d0-0cg.text" = "Welcome to custom memory cards,\n  developed by Pablo Millán.";
+"mpZ-d0-0cg.text" = "Welcome to Custom Pairs of Cards.,\n  developed by Pablo Millán.";
 
-"W9o-PP-wBO.text" = "Custom memory cards is a memory game, \n in which you have to make pairs of equal cards. \n But the cards of the game have no predefined images, \n and in order to play, you first have to customize \n the cards with images or own photos, selecting them in the photo gallery. \n \n This facilitates and helps train visual memory, \n because the images are from family members, \n family pets, familiar places, \n everyday objects or familiar people. \n \n It is not necessary to customize all the pairs to play a board, \n you just have to customize a couple and you can play. \n This allows you to make different games, and in addition to memorizing the image of that card, \n We must also memorize where there are images.";
+"W9o-PP-wBO.text" = "Custom Pairs of Cards. is a memory game, \n in which you have to make pairs of equal cards. \n But the cards of the game have no predefined images, \n and in order to play, you first have to customize \n the cards with images or own photos, selecting them in the photo gallery. \n \n This facilitates and helps train visual memory, \n because the images are from family members, \n family pets, familiar places, \n everyday objects or familiar people. \n \n It is not necessary to customize all the pairs to play a board, \n you just have to customize a couple and you can play. \n This allows you to make different games, and in addition to memorizing the image of that card, \n We must also memorize where there are images.";
 
 "KgY-yQ-MmR.text" = "Developer: Pablo Millán. \n Contact email: patamiapps@gmail.com";
 

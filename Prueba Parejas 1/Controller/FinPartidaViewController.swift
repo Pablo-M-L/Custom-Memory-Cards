@@ -32,11 +32,7 @@ class FinPartidaViewController: UIViewController {
         mostrarTiempoHecho()
         mostrarRecord()
         comprobarRecord()
-        
- 
-        
-        print(nombreClaveDefault)
-    }
+        }
 
     func mostrarLabelCompletado(){
         labelCompletado.text = "\(NSLocalizedString("label_completado_1", comment: "")) \(numeroTablero) \(NSLocalizedString("label_completado_2", comment: "")) \(objetivoParejasHechas) \(NSLocalizedString("label_completado_3", comment: ""))"

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import StoreKit
 import GoogleMobileAds
 
@@ -31,24 +32,26 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     
     //facebook
-    let shareButton: FBSDKShareButton = {
-        let button = FBSDKShareButton()
-        let content = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string:"https://apps.apple.com") as URL?
+    let shareButton: FBShareButton = {
+        let button = FBShareButton()
+        let content = ShareLinkContent()
+        content.contentURL = NSURL(string:"https://apps.apple.com/es/app/custom-memory-cards/id1479676748")! as URL
         button.shareContent = content
         button.setTitle("", for: .normal)
         button.setTitle("", for: .highlighted)
-        button.setImage(UIImage(named: ""), for: .normal)
-        button.setImage(UIImage(named: ""), for: .highlighted)
-        button.setBackgroundImage(UIImage(named: ""), for: .normal)
-        button.setBackgroundImage(UIImage(named: ""), for: .highlighted)
+        button.setImage(UIImage(named: "iconoTransparenteParaFacebook"), for: .normal)
+        button.setImage(UIImage(named: "iconoTransparenteParaFacebook"), for: .highlighted)
+        button.setBackgroundImage(UIImage(named: "iconoTransparenteParaFacebook"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "iconoTransparenteParaFacebook"), for: .highlighted)
+        button.addTarget(self, action: #selector(reproduc), for: .touchUpInside)
         
         return button
     }()
     
     //juego
     var tableroAjugar = 0
-    var playerGirar = AVAudioPlayer()
+    var playerPulsacion: AVAudioPlayer!
+    var playerPulsacion2: AVAudioPlayer!
 
     
     
@@ -59,20 +62,52 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     @IBOutlet weak var btnFacebook: UIButton!
     
+    @IBAction func btnFacebookPresed(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion2)
+    }
     
+    @IBAction func btnAbout(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion)
+    }
+    
+    @IBAction func btnInstruciones(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion)
+    }
     var estado = true
     var imagen = UIImage()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        do{
-        playerGirar = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "girarCarta", ofType: "wav")!))
-        playerGirar.prepareToPlay()
+        //copmprobar primer juego
+        let mostrarAvisoprimerjuego = defaults.bool(forKey: "primerjuego")
+        if !mostrarAvisoprimerjuego{
+            let alert = UIAlertController(title: NSLocalizedString("titulo-alert-primerJuego", comment: ""), message: NSLocalizedString("mensaje-alert-primerJuego", comment: ""), preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: NSLocalizedString("boton-alert-primerJuego", comment: ""), style: .default, handler: {
+                action in
+                let defaults = UserDefaults.standard
+                defaults.set(true, forKey: "primerjuego")
+                defaults.synchronize()
+                self.performSegue(withIdentifier: "segueMenuToInstrucciones", sender: nil)
+                
+                
+            })
+            alert.addAction(actionOk)
+            present(alert,animated: true)
         }
-        catch{
-            print(error)
+        
+        if let soundURL = Bundle.main.url(forResource: "pulsacionBtn", withExtension: "wav"),
+           let soundURL2 = Bundle.main.url(forResource: "pulsacionBtn2", withExtension: "wav"){
+            
+            do {
+                playerPulsacion = try AVAudioPlayer(contentsOf: soundURL)
+                playerPulsacion2 = try AVAudioPlayer(contentsOf: soundURL2)
+            } catch {
+                print(error)
+            }
+            playerPulsacion.prepareToPlay()
+            playerPulsacion2.prepareToPlay()
         }
+
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
@@ -96,10 +131,14 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         
     }
     
+    @objc func reproduc(){
+        reproducirSonido(sonido: playerPulsacion2)
+    }
     @objc func recargarViewcontroller(){
         self.viewDidLoad()
     }
     
+
     //MARK: publicidad y compras.
 
     func leerADs(){
@@ -124,6 +163,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     @IBAction func btnCompraApp(_ sender: UIButton) {
+        reproducirSonido(sonido: playerPulsacion2)
         if appComprada{
             let alert = UIAlertController(title: NSLocalizedString("titulo_alert_compra", comment: ""), message: NSLocalizedString("mensaje_alert_comprada", comment: ""), preferredStyle: .alert)
             let actionOk = UIAlertAction(title: "OK", style: .default, handler: {action in return})
@@ -231,7 +271,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        reproducirSonido(sonido: playerGirar)
+        reproducirSonido(sonido: playerPulsacion)
         switch indexPath.row {
         case 0:
             tableroAjugar = 12

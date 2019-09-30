@@ -30,6 +30,25 @@
 "btnComprar" = "COMPRAR";
 "btnRestaurar" = "RESTAURAR";
 "btnCancelar" = "CANCELAR";
+"titulo-alert-primerJuego" = "¡¡¡OLÁ!!!";
+"mensaje-alert-primerJuego" = "Obrigado por escolher pares de cartas personalizados, antes de começar a jogar, recomendamos ver as instruções de uso. \n Clique no ícone azul de \"guia do usuário\" para ver as instruções.";
+"boton-alert-primerJuego" = "INSTRUÇÕES";
+
+//pantalla editar, ALERTCONTROLLER
+"titulo_alert_importar" = "IMPORTAR IMAGENS DE OUTRO TABULEIRO DE JOGO";
+"mensaje_alert_importar" = "SELECCIONE UM TABULEIRO DE JOGO PARA IMPORTAR";
+"tablero12" = "TABULEIRO 12";
+"tablero20" = "TABULEIRO 20";
+"tablero24" = "TABULEIRO 24";
+"tablero30" = "TABULEIRO 30";
+"tablero36" = "TABULEIRO 36";
+"tablero42" = "TABULEIRO 42";
+
+//pantalla tablero
+"titulo_alertTitulo_noparejas" = "Não há casais personalizados";
+"titulo_alertMensaje_noparejas" = "Para jogar, você deve personalizar pelo menos um casal com uma imagem da galeria";
+"titulo_alertOK_noparejas" = "personalizar";
+"titulo_alertCancel_noparejas" = "Cancelar";
 
 //pantalla de ayuda.
 "texto_ayuda_btnComprar" =

@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         //facebook
-        FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
     
     private func applicaton(application: UIApplication, openURL url: NSURL, sourceApplicatoin: String?, annotation: AnyObject)-> Bool{
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL, sourceApplication: sourceApplicatoin, annotation: annotation)
+        return ApplicationDelegate.shared.application(application, open: url as URL, sourceApplication: sourceApplicatoin, annotation: annotation)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

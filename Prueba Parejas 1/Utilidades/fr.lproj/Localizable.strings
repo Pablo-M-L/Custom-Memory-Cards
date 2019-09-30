@@ -30,6 +30,25 @@
 "btnComprar" = "ACHETER";
 "btnRestaurar" = "RESTAURER";
 "btnCancelar" = "ANNULER";
+"titulo-alert-primerJuego" = "¡¡¡SALUT!!!";
+"mensaje-alert-primerJuego" = "Merci d'avoir choisi des paires de cartes personnalisées. Avant de commencer à jouer, nous vous recommandons de consulter les instructions d'utilisation. \n Cliquez sur l'icône bleue du \"guide de l'utilisateur\" pour afficher les instructions.";
+"boton-alert-primerJuego" = "INSTRUCTIONS";
+
+//pantalla tablero
+"titulo_alertTitulo_noparejas" = "Il n'y a pas de couples personnalisés";
+"titulo_alertMensaje_noparejas" = "Pour jouer, vous devez personnaliser au moins un couple avec une image de la galerie.";
+"titulo_alertOK_noparejas" = "personnaliser";
+"titulo_alertCancel_noparejas" = "Cancel";
+
+//pantalla editar, ALERTCONTROLLER
+"titulo_alert_importar" = "IMPORTER DES IMAGES D'UN AUTRE PLATEAU DE JEU";
+"mensaje_alert_importar" = "SÉLECTIONNEZ UNE PLANCHE DE JEU À IMPORTER À PARTIR DE";
+"tablero12" = "PLANCHE 12";
+"tablero20" = "PLANCHE 20";
+"tablero24" = "PLANCHE 24";
+"tablero30" = "PLANCHE 30";
+"tablero36" = "PLANCHE 36";
+"tablero42" = "PLANCHE 42";
 
 //pantalla de ayuda.
 "texto_ayuda_btnComprar" =
