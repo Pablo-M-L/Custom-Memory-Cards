@@ -25,7 +25,7 @@
 "titulo_alert_compra" = "Suppimer la publicité";
 "mensaje_alert_comprada" = "L'application est déjà achetée.";
 "mensaje_alert_restaurar" = "Le jeu est déjà acheté, vous effectuerez une restauration de l'achat";
-"mensaje_alert_comprar_app" = "Souhaitez-vous acheter le jeu de Custom Memory Cards pour  ";
+"mensaje_alert_comprar_app" = "Souhaitez-vous acheter le jeu de Custom Pairs of Cards pour  ";
 "mensaje_alert_no_permiso_compra" = "Aucun achat n'est autorisé sur cet appareil.";
 "btnComprar" = "ACHETER";
 "btnRestaurar" = "RESTAURER";
@@ -54,7 +54,7 @@
 "texto_ayuda_btnComprar" =
 "ACHETEZ LE JEU \n Tu peux acheter le jeu et retirer la publicité des écrans. \n Vous pouvez aussi restaurer l'achat, si vous l'avez déjà acheté auparavant.";
 "texto_ayuda_btnFace" =
-"PARTAGER SUR FACEBOOK.\n Si vous avez aimé Custom Memory Cards, vous pouvez les recommander dans votre compte Facebook.";
+"PARTAGER SUR FACEBOOK.\n Si vous avez aimé Custom Pairs of Cards, vous pouvez les recommander dans votre compte Facebook.";
 "texto_ayuda_Tablero" =
 "CHOISIR LE PLATEAU DE JEU. \n Chacun des boutons ouvre un plateau de jeu pour jouer. \n Le nombre tiré sur chaque bouton correspond au nombre de cartes sur le plateau de jeu.";
 "texto_ayuda_pantalla_tablero" =

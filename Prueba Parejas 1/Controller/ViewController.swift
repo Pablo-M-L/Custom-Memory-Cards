@@ -35,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     let shareButton: FBShareButton = {
         let button = FBShareButton()
         let content = ShareLinkContent()
-        content.contentURL = NSURL(string:"https://apps.apple.com/es/app/custom-memory-cards/id1479676748")! as URL
+        content.contentURL = NSURL(string:"https://apps.apple.com/es/app/memoria-juego-parejas-cartas/id1479676748")! as URL
         button.shareContent = content
         button.setTitle("", for: .normal)
         button.setTitle("", for: .highlighted)

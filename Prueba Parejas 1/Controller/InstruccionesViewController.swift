@@ -140,9 +140,9 @@ class InstruccionesViewController: UIViewController {
     func animBtnTablero(){
         let animationFace = CABasicAnimation(keyPath: "position")
         animationFace.fromValue = animFlecha.position
-        animationFace.toValue = CGPoint(x: view.bounds.size.width / 2.3, y: view.bounds.size.height/1.92)
+        animationFace.toValue = CGPoint(x: view.bounds.size.width / 2.3, y: view.bounds.size.height/1.6)
         animationFace.duration = 2
-        animFlecha.position = CGPoint(x: view.bounds.size.width / 2.3, y: view.bounds.size.height / 1.92)
+        animFlecha.position = CGPoint(x: view.bounds.size.width / 2.3, y: view.bounds.size.height / 1.6)
         animFlecha.add(animationFace, forKey: "basic animation")
     }
     

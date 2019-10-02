@@ -403,6 +403,11 @@ class BoardViewController: UIViewController {
     
     func parejaHecha(){
         reproducirSonido(sonido: playerAcierto)
+        cartaPulsada[indiceCartaAbierta1].borderColor = UIColor.orange
+        cartaPulsada[indiceCartaAbierta2].borderColor = UIColor.orange
+        cartaPulsada[indiceCartaAbierta1].borderWidth = 8
+        cartaPulsada[indiceCartaAbierta2].borderWidth = 8
+
         deshabilitarHabilitar(carta: self.cartaPulsada[indiceCartaAbierta1])
         deshabilitarHabilitar(carta: self.cartaPulsada[indiceCartaAbierta2])
         parejasAcertadas += 1

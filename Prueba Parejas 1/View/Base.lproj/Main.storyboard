@@ -2676,7 +2676,6 @@
         <image name="trash" width="213.33332824707031" height="213.33332824707031"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Dr-R3-Izz"/>
         <segue reference="u6N-7U-k9B"/>
         <segue reference="yiC-V4-3wy"/>
     </inferredMetricsTieBreakers>
