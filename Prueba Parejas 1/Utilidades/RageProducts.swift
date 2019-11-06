@@ -6,6 +6,7 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 
+
 import Foundation
 
 //lista de compras dentro de la la app, en este caso solo hay una.
@@ -22,4 +23,6 @@ public enum RageProducts{
     public static let store = IAPHelper(productIdentifier: RageProducts.productsIdentifier)
     
 }
+
+
 

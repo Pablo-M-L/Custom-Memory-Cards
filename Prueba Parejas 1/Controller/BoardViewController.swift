@@ -11,13 +11,17 @@ import GoogleMobileAds
 import AVFoundation
 
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController, GADInterstitialDelegate {
     
     var numeroTablero = 0
     var arrayTuplaCartas = [(imagen: UIImage,indice: Int)]()
     var arrayParesTuplaCartas = [(imagen: UIImage,indice: Int)]()
     var defaults = UserDefaults.standard
-    
+    var idBanner = ""
+    var interstitial: GADInterstitial!
+    var interstitialMostrado = false
+
+
     @IBAction func btnReiniciarPartida(_ sender: UIButton) {
         reproducirSonido(sonido: playerPulsacion2)
         if !comprobandoTirada{ tiradaNueva()}
@@ -120,6 +124,7 @@ class BoardViewController: UIViewController {
         reverso = imagenReverso
 
         cargarTableroJuego()
+        cargarIDBanner()
         
         //comprobar si hay que mostrar publicidad o está comprada.
         let appComprada = defaults.bool(forKey: "com.pablomillanlopez.juegos.CustomMemoryCards")
@@ -128,12 +133,34 @@ class BoardViewController: UIViewController {
         }
         else{
             leerADs()
+            self.interstitial = createAndLoadInterstitial()
+            mostrarBannerInt()
         }
     }
     
+    func cargarIDBanner(){
+        switch numeroTablero {
+            case 12:
+                idBanner = "ca-app-pub-4831265414200206/5272969211"
+            case 20:
+                idBanner = "ca-app-pub-4831265414200206/4281992186"
+            case 24:
+                idBanner = "ca-app-pub-4831265414200206/1795429646"
+            case 30:
+                idBanner = "ca-app-pub-4831265414200206/9567437441"
+            case 36:
+                idBanner = "ca-app-pub-4831265414200206/2946188771"
+            case 42:
+                idBanner = "ca-app-pub-4831265414200206/9487546393"
+        default:
+            idBanner = "ca-app-pub-4831265414200206/8871267675"
+        }
+    }
+    
+    //MARK: bloque Banners
     @objc func leerADs(){
         
-        self.bannerView.adUnitID = "ca-app-pub-4831265414200206/8871267675"
+        self.bannerView.adUnitID = idBanner
         self.bannerView.rootViewController = self
         self.bannerView.load(GADRequest())
         showAdmobBanner()
@@ -147,6 +174,39 @@ class BoardViewController: UIViewController {
         self.bannerView.isHidden = true
     }
     
+    //MARK: bloque interstitial
+    @objc func mostrarBannerInt(){
+        if interstitial.isReady {
+            interstitialMostrado = true
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+            if !interstitialMostrado{
+            self.perform(#selector(self.mostrarBannerInt), with: nil, afterDelay: 0.3)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        comprobarPararTimer(temporizador: cronometro)
+        
+        if !interstitialMostrado{
+            interstitialMostrado = true
+            print(interstitialMostrado)
+        }
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4831265414200206/1412302174")
+        let request = GADRequest()
+        interstitial.load(request)
+        interstitial.delegate = self
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        self.interstitial = createAndLoadInterstitial()
+    }
     func cargarTableroJuego(){
         //ocultar filas segun el tablero.
         switch numeroTablero {
@@ -236,14 +296,6 @@ class BoardViewController: UIViewController {
                 girarCarta2()
                 comprobarPareja(carta1: arrayParesTuplaCartas[numeroCartaConfigurada1], carta2: arrayParesTuplaCartas[numeroCartaConfigurada2])
             }}
-    }
-    
-
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        comprobarPararTimer(temporizador: cronometro)
-   
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -131,6 +131,7 @@ extension IAPHelper: SKPaymentTransactionObserver{
             case .purchasing:
                 break
             default:
+                print("default compra")
                 break
             }
         }
@@ -138,18 +139,21 @@ extension IAPHelper: SKPaymentTransactionObserver{
     
     //transaccion completada.
     private func completeTransaction(transaction: SKPaymentTransaction){
+        print("comprando la carta")
         provideContentForProductID(productIdentifier: transaction.payment.productIdentifier)
         SKPaymentQueue.default().finishTransaction(transaction) //cierra la transaccion.
         
     }
     
     private func restoreTransaction(transaction: SKPaymentTransaction){
+        print("restaurando la compra")
         let productID = transaction.original?.payment.productIdentifier
         provideContentForProductID(productIdentifier: productID!)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
     
     private func failedTransaction(transaction: SKPaymentTransaction){
+        print("fallo transaccion")
         if transaction.error?.localizedDescription != "paymentCancelled"{
             print("transaction error: \((transaction.error?.localizedDescription)!)")
         }
@@ -167,3 +171,4 @@ extension IAPHelper: SKPaymentTransactionObserver{
     
 
 }
+
